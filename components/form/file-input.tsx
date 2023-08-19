@@ -10,11 +10,15 @@ import {
 } from 'react'
 interface FileInputProps extends HTMLAttributes<HTMLDivElement> {
   onBlobChange?: (url: FileToBlob) => void
+  disabled?: boolean
+  defaultValue?: any
 }
 
 const FileInput = ({
   children,
+  disabled = false,
   onBlobChange,
+  defaultValue,
   ...rest
 }: PropsWithChildren<FileInputProps>) => {
   const inputRef = useRef<HTMLInputElement>(null)
@@ -36,13 +40,13 @@ const FileInput = ({
       },
     }
   )
-  const [preview, setPreview] = useState('')
+  const [preview, setPreview] = useState(defaultValue?.url || '')
 
   return (
     <div
       {...rest}
       className={cn('relative', rest.className)}
-      onClick={() => inputRef.current?.click()}
+      onClick={() => !disabled && inputRef.current?.click()}
     >
       {children}
 

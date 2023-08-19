@@ -1,15 +1,6 @@
 import { AdvertiseApi } from '@/api/advertise'
 import Empty from '@/components/empty'
 import Loading from '@/components/loading'
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table'
 import { cn } from '@/lib/utils'
 import { AdArea, TimeMap } from '@/models/Ad'
 import { Line } from '@/models/Line'
@@ -30,7 +21,6 @@ export function LineAddStatus({ line }: { line: Line }) {
     [data]
   )
 
-  console.log(filterdData)
   return isLoading || isError ? (
     <Loading loading={isLoading} error={isError} className="w-full h-40" />
   ) : (

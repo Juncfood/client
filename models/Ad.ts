@@ -40,4 +40,5 @@ export interface Ad extends Common {
   preoccupied: boolean
   line: Line
   lineId: string
+  landingUrl: string
 }

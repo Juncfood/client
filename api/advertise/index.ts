@@ -10,11 +10,19 @@ export const AdvertiseApi = {
     reditAds: {
       mutationKey: ['update-ad'],
       mutationFn: async (param) => {
-        const { adArea, image, line, timezone, title } = param
-        const { secure_url: imageUrl } = await uploadImage(blobToFile(image))
+        const { adId, image, line, timezone, title, landingUrl } = param
+        const { type, url, name } = image
+        let imageUrl
+        if (url && !type && !name) imageUrl = url
+        else {
+          const { secure_url } = await uploadImage(blobToFile(image))
+          imageUrl = secure_url
+        }
         const body = {
+          adId,
           title,
           imageUrl,
+          landingUrl,
         }
         const res = await instance.post('/ad/register', body)
         return res.data
@@ -26,10 +34,10 @@ export const AdvertiseApi = {
       const queryKey = ['get-ads-by-line-id', id, timeZone].filter(
         (item) => item !== undefined
       )
-      console.log(queryKey)
       return {
         queryKey,
-        queryFn: async ({ queryKey }) => {
+        queryFn: async () => {
+          if (!queryKey[1]) return []
           const res = await instance.get<Ad[]>(`/ad`, {
             params: {
               lineId: queryKey[1],

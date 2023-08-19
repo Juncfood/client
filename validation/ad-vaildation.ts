@@ -21,13 +21,12 @@ export const adValidation = {
           required_error: 'Timezone is required.',
         }
       ),
-      adArea: z.enum(
-        [AdArea.DOORSIDELEFT, AdArea.DOORSIDERIGHT, AdArea.UPPERSIDE],
-        {
-          required_error: 'adArea is required.',
-        }
-      ),
-      // image: uploadValidation.POST,
+      adId: z.string({
+        required_error: 'adId is required.',
+      }),
+      landingUrl: z.string({
+        required_error: 'landingUrl is required.',
+      }),
     })
     .merge(uploadValidation.POST),
 }

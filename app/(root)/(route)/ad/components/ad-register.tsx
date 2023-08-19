@@ -1,6 +1,7 @@
 'use client'
 import { AdvertiseApi } from '@/api/advertise'
 import { uploadImage } from '@/api/external/upload-image'
+import instance from '@/api/instance'
 import { SubwayApi } from '@/api/subway'
 import FileInput from '@/components/form/file-input'
 import ImageUploadButton from '@/components/image-upload'
@@ -19,12 +20,13 @@ import {
 } from '@/components/ui/select'
 import { useToast } from '@/components/ui/use-toast'
 import { blobToFile } from '@/lib/utils'
-import { AdArea, TimeZone } from '@/models/Ad'
+import { Ad, AdArea, TimeZone } from '@/models/Ad'
 import adValidation from '@/validation/ad-vaildation'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useMutation, useQuery } from '@tanstack/react-query'
-import { useEffect } from 'react'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useRouter } from 'next/navigation'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 
@@ -46,22 +48,40 @@ const areaType: { [key in AdArea]: { name: string; value: AdArea } } = {
 type AdPostType = z.infer<(typeof adValidation)['POST']>
 
 interface AdRegisterProps {
-  ad?: AdPostType
+  ad?: Ad
 }
 
 const AdRegister = ({ ad }: AdRegisterProps) => {
   const { data: lines } = useQuery(SubwayApi.queries.getLines)
-  const { mutate } = useMutation({
-    ...AdvertiseApi.mutations.reditAds,
-    onSuccess(data, variables, context) {
-      console.log(data)
-    },
-  })
-  const { toast } = useToast()
+  const queryClient = useQueryClient()
+  const [adList, setAdList] = useState<Ad[]>([])
   const form = useForm<AdPostType>({
     resolver: zodResolver(adValidation['POST']),
     defaultValues: {
-      ...ad,
+      adId: ad?.id,
+      image: {
+        url: ad?.imageUrl,
+      },
+      landingUrl: ad?.landingUrl,
+      timezone: ad?.timeZone,
+      title: ad?.title,
+      line: ad?.lineId,
+    },
+    mode: 'onChange',
+  })
+  const { toast } = useToast()
+  const router = useRouter()
+  const { mutate, isLoading } = useMutation({
+    ...AdvertiseApi.mutations.reditAds,
+    onSuccess(data) {
+      toast({
+        type: 'foreground',
+        title: 'DONE',
+        duration: 1500,
+      })
+      queryClient.clear()
+      router.refresh()
+      router.push('/')
     },
   })
 
@@ -71,6 +91,7 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
 
   useEffect(() => {
     const error = Object.entries(form.formState.errors)
+    console.log(error)
     if (error.length) {
       toast({
         title: 'Error',
@@ -79,6 +100,25 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
       })
     }
   }, [form.formState.errors, toast])
+
+  const updateAdList = async (lineId: string, timeZone: string) => {
+    const res = await instance.get<Ad[]>(`/ad`, {
+      params: {
+        lineId,
+        timeZone,
+      },
+    })
+    setAdList(res.data)
+  }
+
+  const timeZone = form.watch('timezone')
+  const line = form.watch('line')
+
+  useEffect(() => {
+    if (line && timeZone) {
+      updateAdList(line, timeZone)
+    }
+  }, [form, line, timeZone])
 
   return (
     <Form {...form}>
@@ -92,7 +132,11 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
           name="line"
           render={({ field }) => (
             <FormItem>
-              <Select onValueChange={field.onChange}>
+              <Select
+                disabled={isLoading}
+                onValueChange={field.onChange}
+                defaultValue={field.value}
+              >
                 <SelectTrigger>
                   <SelectValue placeholder="Select an option" />
                 </SelectTrigger>
@@ -112,8 +156,13 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
           control={form.control}
           name="title"
           render={({ field }) => (
-            <FormItem>
-              <Input type="text" onChange={field.onChange} />
+            <FormItem defaultValue={field.value}>
+              <Input
+                {...field}
+                disabled={isLoading}
+                type="text"
+                onChange={field.onChange}
+              />
             </FormItem>
           )}
         />
@@ -125,9 +174,13 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
           control={form.control}
           name="timezone"
           render={({ field }) => (
-            <RadioGroup className="flex justify-between">
+            <RadioGroup
+              disabled={isLoading}
+              className="flex justify-between"
+              defaultValue={field.value}
+            >
               {Object.entries(timeType).map((timeKey) => (
-                <FormItem key={timeKey[0]}>
+                <FormItem key={timeKey[0]} {...field}>
                   <FormControl>
                     <Timezone
                       selected={field.value === timeKey[1]}
@@ -140,30 +193,59 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
             </RadioGroup>
           )}
         />
-        <Label>Ad Area</Label>
+        {adList.length ? (
+          <>
+            <Label>Ad Area</Label>
+            <FormField
+              control={form.control}
+              name="adId"
+              render={({ field }) => {
+                return (
+                  <Select
+                    defaultValue={field.value}
+                    disabled={isLoading}
+                    onValueChange={field.onChange}
+                    {...field}
+                  >
+                    <SelectTrigger>
+                      <SelectValue
+                        placeholder="?palceholer"
+                        defaultValue={adList[0].type}
+                      />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {adList
+                        ?.filter((item) =>
+                          ad
+                            ? item.occupied
+                            : !item.occupied && !item.preoccupied
+                        )
+                        .map((ad) => (
+                          <SelectItem key={ad.id} value={ad.id}>
+                            {areaType[ad.type].name}
+                          </SelectItem>
+                        ))}
+                    </SelectContent>
+                  </Select>
+                )
+              }}
+            />
+          </>
+        ) : null}
+        <Label>Landing Url</Label>
         <FormField
           control={form.control}
-          name="adArea"
-          render={({ field }) => {
-            const adList = Object.entries(areaType)
-            return (
-              <Select onValueChange={field.onChange}>
-                <SelectTrigger>
-                  <SelectValue
-                    placeholder="?palceholer"
-                    defaultValue={adList[0][1].value}
-                  />
-                </SelectTrigger>
-                <SelectContent>
-                  {adList?.map((ad) => (
-                    <SelectItem key={ad[1].value} value={ad[1].value}>
-                      {ad[1].name}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            )
-          }}
+          name="landingUrl"
+          render={({ field }) => (
+            <FormItem>
+              <Input
+                {...field}
+                disabled={isLoading}
+                type="text"
+                onChange={field.onChange}
+              />
+            </FormItem>
+          )}
         />
         <Label></Label>
         <FormField
@@ -171,6 +253,8 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
           name="image"
           render={({ field }) => (
             <FileInput
+              defaultValue={field.value}
+              disabled={isLoading}
               className="aspect-[524/372]  w-2/3 bg-blue-300"
               onBlobChange={(blob) => field.onChange(blob)}
             >

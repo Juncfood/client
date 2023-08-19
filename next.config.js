@@ -7,6 +7,14 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'nwllvhheepuafgifrtlu.supabase.co',
       },
+      {
+        protocol: 'https',
+        hostname: 'uyvuezuqecavttegymmj.supabase.co',
+      },
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+      },
     ],
   },
 }

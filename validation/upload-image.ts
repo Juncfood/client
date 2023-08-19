@@ -6,15 +6,9 @@ const uploadValidation = {
   POST: z.object({
     image: z.object(
       {
-        name: z.string({
-          required_error: 'image is required.',
-        }),
-        size: z.number({
-          required_error: 'image is required.',
-        }),
-        type: z.string({
-          required_error: 'image is required.',
-        }),
+        name: z.string().optional(),
+        size: z.number().optional(),
+        type: z.string().optional(),
         url: z.string({
           required_error: 'image is required.',
         }),

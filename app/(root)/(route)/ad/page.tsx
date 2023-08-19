@@ -4,6 +4,18 @@ import { Ad, TimeZone } from '@/models/Ad'
 import instance from '@/api/instance'
 import PrefetchQuery from '@/hydrate/prefetch-query'
 import { AdvertiseApi } from '@/api/advertise'
+import getQueryClient from '@/app/getQueryClient'
+import { QueryKey } from '@tanstack/react-query'
+
+const getEditableAd = async (lineId: string, timeZone: string) => {
+  const res = await instance.get<Ad[]>(`/ad`, {
+    params: {
+      lineId,
+      timeZone,
+    },
+  })
+  return res.data
+}
 
 const RegisterPage = async ({
   searchParams,
@@ -12,6 +24,11 @@ const RegisterPage = async ({
 }) => {
   const { lineId, timeZone } = searchParams || {}
   const isEdit = lineId && timeZone
+
+  const ad = isEdit
+    ? (await getEditableAd(lineId, timeZone)).find((item) => !!item.occupied)
+    : undefined
+
   return (
     <Fragment>
       <PrefetchQuery
@@ -21,7 +38,7 @@ const RegisterPage = async ({
       >
         <h1 className="text-title font-bold">{isEdit ? 'Edit' : 'Register'}</h1>
 
-        <AdRegister />
+        <AdRegister ad={ad} />
       </PrefetchQuery>
     </Fragment>
   )

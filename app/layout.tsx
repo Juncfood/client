@@ -12,6 +12,7 @@ import Sidebar from '@/components/sidebar'
 import PrefetchQuery from '@/hydrate/prefetch-query'
 import { SubwayApi } from '@/api/subway'
 import { Inter } from 'next/font/google'
+import { MetricApi } from '@/api/metric'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -28,7 +29,12 @@ export default async function RootLayout({
       <body>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <QueryProvider>
-            <PrefetchQuery queries={[SubwayApi.queries.getLines]}>
+            <PrefetchQuery
+              queries={[
+                SubwayApi.queries.getLines,
+                MetricApi.queries.getOccupied,
+              ]}
+            >
               <SocketProvider>
                 <div className="h-full">
                   <Navbar />

@@ -7,11 +7,12 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { cn } from '@/lib/utils'
-import { useQuery } from '@tanstack/react-query'
+import { useQueries, useQuery } from '@tanstack/react-query'
 import { LineAddStatus } from './line-content'
 
 import { Variants, motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
+import { AdvertiseApi } from '@/api/advertise'
 
 const itemVariants: Variants = {
   initial: {
@@ -26,6 +27,11 @@ const AccItem = motion(AccordionItem)
 const AccordionWrapper = motion(Accordion)
 const LineStatusPage = () => {
   const { data } = useQuery(SubwayApi.queries.getLines)
+  const subwayList = useQueries({
+    queries:
+      data?.map((item) => AdvertiseApi.queries.getAdsByLineId(item.id)) || [],
+  })
+
   return (
     <AccordionWrapper
       type="single"
@@ -37,7 +43,7 @@ const LineStatusPage = () => {
       }}
       className="flex flex-col space-y-4"
     >
-      {data?.map((line) => {
+      {data?.map((line, idx) => {
         const color = line.primaryColor
         return (
           <AccItem
@@ -47,7 +53,7 @@ const LineStatusPage = () => {
             className="bg-primary-foreground rounded-md"
           >
             <AccordionTrigger className="px-8 py-6 [&[data-state=open]>div_svg]:rotate-180">
-              <div className="grid grid-cols-[10%_1fr_1fr_25%_15%_10%] w-full items-center whitespace-nowrap overflow-x-hidden">
+              <div className="grid grid-cols-[1fr_1.5fr_1fr_1fr_2fr_1fr_10%] w-full items-center whitespace-nowrap overflow-x-hidden">
                 <div
                   className={cn(
                     'p-1 aspect-square rounded-full w-6 h-6 flex items-center justify-center text-white'
@@ -56,9 +62,14 @@ const LineStatusPage = () => {
                 >
                   {line.name.slice(0, 1)}
                 </div>
-                <span className="text-left">{line.name}</span>
+                <span className="text-left text-ellipsis overflow-x-hidden">
+                  {line.name}
+                </span>
                 {/* <div className="grid grid-cols-2">
                 </div> */}
+                <span>
+                  {subwayList[idx].data?.filter((i) => i.occupied).length || 0}
+                </span>
                 <span className="text-ellipsis overflow-x-hidden text-left text-[#334155]">
                   {line.startStationName}
                 </span>
@@ -76,7 +87,7 @@ const LineStatusPage = () => {
                     style={{ borderColor: color }}
                   />
                 </div>
-                <span className="text-right text-[#334155]">
+                <span className="text-right text-ellipsis overflow-x-hidden text-[#334155]">
                   {line.endStationName}
                 </span>
                 <div className="flex justify-end">

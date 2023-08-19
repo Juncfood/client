@@ -22,6 +22,7 @@ const ImageUploadButton = () => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onValid)}>
+        {/* <p className="text-extraBold">1</p> */}
         <FormField
           control={form.control}
           name="image"

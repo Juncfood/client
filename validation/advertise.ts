@@ -8,12 +8,13 @@ export const adValidation = {
     title: z.string().min(1, {
       message: 'Title is required.',
     }),
-    labelId: z.string().min(1, {
-      message: 'Label ID is required.',
-    }),
     // FIXME
     timezone: z.string().min(1, {
       message: 'Timezone is required',
+    }),
+    // FIXME
+    adArea: z.string().min(1, {
+      message: 'adArea is required',
     }),
   }),
 }

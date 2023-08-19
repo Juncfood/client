@@ -1,11 +1,11 @@
 'use client'
-import { useRive } from '@rive-app/react-canvas'
 
+import Lottie from 'react-lottie'
+import j from '../public/loading-spinner.json'
 export default function Loading() {
-  const { RiveComponent, rive } = useRive({
-    src: './ocr_card.riv',
-    autoplay: true,
-  })
-
-  return <RiveComponent className="sub-nav-height" />
+  return (
+    <div className="sub-nav-height">
+      <Lottie options={{ animationData: j, autoplay: true, loop: true }} />
+    </div>
+  )
 }

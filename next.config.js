@@ -1,7 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  images: { unoptimized: true },
+  module: {
+    rules: [
+      {
+        test: /\.json$/,
+        use: 'json-loader',
+      },
+    ],
+  },
 }
 
 module.exports = nextConfig

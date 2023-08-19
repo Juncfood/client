@@ -87,7 +87,9 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
         onSubmit={form.handleSubmit(onValid)}
         className="grid grid-cols-[20%_1fr] items-center gap-y-6"
       >
-        <Label>Line</Label>
+        <Label>
+          <h3 className="text-Title1">Line</h3>
+        </Label>
         <FormField
           control={form.control}
           name="line"
@@ -108,7 +110,9 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
             </FormItem>
           )}
         />
-        <Label>Title</Label>
+        <Label>
+          <h3 className="text-Title1">Title</h3>
+        </Label>
         <FormField
           control={form.control}
           name="title"
@@ -119,8 +123,8 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
           )}
         />
         <Label>
-          <h3>Timezone</h3>
-          <p>(select 1)</p>
+          <h3 className="text-Title1">Timezone</h3>
+          <p className="text-Body1 text-gray-300">(Select 1)</p>
         </Label>
         <FormField
           control={form.control}
@@ -141,7 +145,9 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
             </RadioGroup>
           )}
         />
-        <Label>Ad Area</Label>
+        <Label>
+          <h3 className="text-Title1">Ad Area</h3>
+        </Label>
         <FormField
           control={form.control}
           name="adArea"

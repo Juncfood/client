@@ -17,6 +17,20 @@ export const uploadValidation = {
       url: z.string({
         required_error: 'image is required.',
       }),
+      line: z.string().min(1, {
+        message: 'Line is required.',
+      }),
+      title: z.string().min(1, {
+        message: 'Title is required.',
+      }),
+      // FIXME
+      timezone: z.string().min(1, {
+        message: 'Timezone is required',
+      }),
+      // FIXME
+      adArea: z.string().min(1, {
+        message: 'adArea is required',
+      }),
     }),
   }),
 }

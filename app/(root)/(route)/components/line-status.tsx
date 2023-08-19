@@ -13,6 +13,7 @@ import { LineAddStatus } from './line-content'
 import { Variants, motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import { AdvertiseApi } from '@/api/advertise'
+import { useMemo } from 'react'
 
 const itemVariants: Variants = {
   initial: {
@@ -32,6 +33,16 @@ const LineStatusPage = () => {
       data?.map((item) => AdvertiseApi.queries.getAdsByLineId(item.id)) || [],
   })
 
+  const sortedData = useMemo(() => {
+    const dataWithCount = data?.map((item, idx) => ({
+      ...item,
+      count: subwayList[idx].data?.filter((i) => i.occupied).length || 0,
+    }))
+
+    dataWithCount?.sort((a, b) => (b?.count || 0) - (a?.count || 0))
+    return dataWithCount
+  }, [data, subwayList])
+
   return (
     <AccordionWrapper
       type="single"
@@ -43,7 +54,7 @@ const LineStatusPage = () => {
       }}
       className="flex flex-col space-y-4"
     >
-      {data?.map((line, idx) => {
+      {sortedData?.map((line, idx) => {
         const color = line.primaryColor
         return (
           <AccItem
@@ -67,9 +78,7 @@ const LineStatusPage = () => {
                 </span>
                 {/* <div className="grid grid-cols-2">
                 </div> */}
-                <span>
-                  {subwayList[idx].data?.filter((i) => i.occupied).length || 0}
-                </span>
+                <span>{line.count}</span>
                 <span className="text-ellipsis overflow-x-hidden text-left text-[#334155]">
                   {line.startStationName}
                 </span>

@@ -3,30 +3,78 @@
 import { MetricApi } from '@/api/metric'
 import { SubwayApi } from '@/api/subway'
 import { Ad } from '@/models/Ad'
-import { useQueries, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useQueries, useQueryClient } from '@tanstack/react-query'
+import { useMemo } from 'react'
+import { Line } from 'react-chartjs-2'
 
+import {
+  registerables,
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  Legend,
+  ArcElement,
+  CategoryScale,
+} from 'chart.js'
+
+ChartJS.register(
+  Title,
+  Tooltip,
+  Legend,
+  ArcElement,
+  CategoryScale,
+  ...registerables
+)
 const QRCoreCTRChart = () => {
   const queryClient = useQueryClient()
-  // const {} = useQuery(MetricApi.queries.getLines)
+
   const occupiedList = queryClient.getQueryData(
     MetricApi.queries.getOccupied.queryKey
   ) as Ad[]
+
   const lineList = queryClient.getQueryData(
-    SubwayApi.queries.getLines.queryKey
+    MetricApi.queries.getOccupied.queryKey
   ) as Ad[]
 
-  const lines = occupiedList.map((oc) =>
-    lineList.find((item) => item.id === oc.lineId)
-  )
-  console.log(lines)
   const [...chartData] = useQueries({
     queries: occupiedList.map((occupied) =>
       MetricApi.queries.getQRCodeCTR(occupied.id)
     ),
   })
+  const parsedData = useMemo(
+    () => chartData.filter((i) => i.data?.length),
+    [chartData]
+  )
 
-  console.log(chartData)
-  return <div></div>
+  const labels = useMemo(
+    () =>
+      [
+        ...(new Set(
+          parsedData.map((item) => item.data?.map((d) => d.dateString)).flat()
+        ) || []),
+      ].reverse(),
+    [parsedData]
+  )
+
+  return (
+    <div>
+      <Line
+        data={{
+          labels,
+          datasets: parsedData.map((data) => {
+            const label =
+              occupiedList.find((i) => i.id === data?.data?.[0].adId)?.title ||
+              ''
+
+            return {
+              label,
+              data: data.data?.map((i) => i.scanCount),
+            }
+          }),
+        }}
+      />{' '}
+    </div>
+  )
 }
 
 export default QRCoreCTRChart

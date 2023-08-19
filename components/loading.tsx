@@ -9,11 +9,13 @@ import { HTMLAttributes, useCallback, useEffect } from 'react'
 
 interface LoadingProps extends HTMLAttributes<HTMLDivElement> {
   loading?: boolean
+  error?: boolean
   onSuccessEnd?: () => void
 }
 
 export default function Loading({
   loading = false,
+  error = false,
   className,
   onSuccessEnd,
 }: LoadingProps) {
@@ -25,16 +27,21 @@ export default function Loading({
     },
   })
 
-  const successInput = useStateMachineInput(rive, 'Success')
   const onLoadingEnd = useCallback(() => {
     onSuccessEnd && onSuccessEnd()
   }, [onSuccessEnd])
 
   useEffect(() => {
     if (!loading) {
-      successInput?.fire()
+      rive?.play('Success')
     }
-  }, [loading, rive, successInput])
+  }, [loading, rive])
+
+  useEffect(() => {
+    if (error) {
+      rive?.play('Error')
+    }
+  }, [error, rive])
 
   useEffect(() => {
     rive?.on(EventType.Stop, onLoadingEnd)

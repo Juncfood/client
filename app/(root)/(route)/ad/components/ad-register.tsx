@@ -24,6 +24,7 @@ import adValidation from '@/validation/ad-vaildation'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useMutation, useQuery } from '@tanstack/react-query'
+import Image from 'next/image'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
@@ -84,7 +85,7 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onValid)}
-        className="grid grid-cols-[20%_1fr] items-center gap-y-12"
+        className="grid grid-cols-[20%_1fr] items-center gap-y-6"
       >
         <Label>Line</Label>
         <FormField
@@ -125,7 +126,7 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
           control={form.control}
           name="timezone"
           render={({ field }) => (
-            <RadioGroup className="flex justify-between">
+            <RadioGroup className="flex justify-between py-4">
               {Object.entries(timeType).map((timeKey) => (
                 <FormItem key={timeKey[0]}>
                   <FormControl>
@@ -150,7 +151,7 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
               <Select onValueChange={field.onChange}>
                 <SelectTrigger>
                   <SelectValue
-                    placeholder="?palceholer"
+                    placeholder="Select Ad Area"
                     defaultValue={adList[0][1].value}
                   />
                 </SelectTrigger>
@@ -171,15 +172,23 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
           name="image"
           render={({ field }) => (
             <FileInput
-              className="aspect-[524/372]  w-2/3 bg-blue-300"
+              className="aspect-[524/372]  w-2/3 bg-gray-300 rounded-[10px] flex flex-col justify-center items-center"
               onBlobChange={(blob) => field.onChange(blob)}
             >
-              <div>??</div>
+              <div>
+                <Image
+                  src="/registerImg.svg"
+                  width={40}
+                  height={40}
+                  alt="register your img"
+                />
+              </div>
+              <div className="text-white text-sm mt-[8px]">Select Image</div>
             </FileInput>
           )}
         />
 
-        <Button className="bg-inverse w-full col-span-2">SAVE</Button>
+        <Button className="bg-inverse w-full col-span-2 py-6">SAVE</Button>
       </form>
     </Form>
   )

@@ -53,6 +53,7 @@ module.exports = {
         inverse: {
           DEFAULT: 'hsl(var(--inverse))',
         },
+        gray: {},
       },
       fontSize: {
         title: '2rem',

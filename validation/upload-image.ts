@@ -4,9 +4,20 @@ const ACCEPTED_IMAGE_TYPES = ['image/jpeg', 'image/jpg', 'image/png']
 
 export const uploadValidation = {
   POST: z.object({
-    image: z.any().refine((v) => {
-      return !!v[0]
-    }, '이미지는 필수입니다.'),
+    image: z.object({
+      name: z.string({
+        required_error: 'image is required.',
+      }),
+      size: z.number({
+        required_error: 'image is required.',
+      }),
+      type: z.string({
+        required_error: 'image is required.',
+      }),
+      url: z.string({
+        required_error: 'image is required.',
+      }),
+    }),
   }),
 }
 export type Validation<T extends keyof typeof uploadValidation> = z.infer<

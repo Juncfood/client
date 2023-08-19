@@ -39,7 +39,7 @@ const Navbar = () => {
               'hidden md:block text-xl md:text-3xl font-bold text-primary'
             )}
           >
-            TITLE
+            AdWay
           </h1>
         </Link>
       </div>

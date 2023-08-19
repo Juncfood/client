@@ -8,64 +8,6 @@ module.exports = {
     './src/**/*.{ts,tsx}',
   ],
   theme: {
-    fontSize: {
-      LargeTitle: [
-        '48px',
-        {
-          fontWeight: '800',
-          lineHeight: '48px',
-        },
-      ],
-      Title1: [
-        '24px',
-        {
-          fontWeight: '600',
-          lineHeight: '32px',
-        },
-      ],
-      Title2: [
-        '24px',
-        {
-          fontWeight: '600',
-          lineHeight: '32px',
-        },
-      ],
-      Body1: [
-        '18px',
-        {
-          fontWeight: '600',
-          lineHeight: '28px',
-        },
-      ],
-      Body2: [
-        '16px',
-        {
-          fontWeight: '400',
-          lineHeight: '24px',
-        },
-      ],
-      Button: [
-        '24px',
-        {
-          fontWeight: '600',
-          lineHeight: '32px',
-        },
-      ],
-      Subtitle1: [
-        '14px',
-        {
-          fontWeight: '400',
-          lineHeight: '20px',
-        },
-      ],
-      Subtitle2: [
-        '12px',
-        {
-          fontWeight: '400',
-          lineHeight: '16px',
-        },
-      ],
-    },
     container: {
       center: true,
       padding: '2rem',
@@ -115,6 +57,62 @@ module.exports = {
       fontSize: {
         title: '2rem',
         subTitle: '1.25rem',
+        LargeTitle: [
+          '48px',
+          {
+            fontWeight: '800',
+            lineHeight: '48px',
+          },
+        ],
+        Title1: [
+          '24px',
+          {
+            fontWeight: '600',
+            lineHeight: '32px',
+          },
+        ],
+        Title2: [
+          '24px',
+          {
+            fontWeight: '600',
+            lineHeight: '32px',
+          },
+        ],
+        Body1: [
+          '18px',
+          {
+            fontWeight: '600',
+            lineHeight: '28px',
+          },
+        ],
+        Body2: [
+          '16px',
+          {
+            fontWeight: '400',
+            lineHeight: '24px',
+          },
+        ],
+        Button: [
+          '24px',
+          {
+            fontWeight: '600',
+            lineHeight: '32px',
+          },
+        ],
+        Subtitle1: [
+          '14px',
+          {
+            fontWeight: '400',
+            lineHeight: '20px',
+          },
+        ],
+        Subtitle2: [
+          '12px',
+          {
+            fontWeight: '400',
+            lineHeight: '16px',
+          },
+        ],
       },
       borderRadius: {
         lg: 'var(--radius)',

@@ -1,14 +1,21 @@
-import { FileToBlob, getBase64 } from '@/lib/utils'
+import { FileToBlob, cn, getBase64 } from '@/lib/utils'
 import { useMutation } from '@tanstack/react-query'
 import Image from 'next/image'
-import { PropsWithChildren, useEffect, useRef, useState } from 'react'
-interface FileInputProps {
+import {
+  HTMLAttributes,
+  PropsWithChildren,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
+interface FileInputProps extends HTMLAttributes<HTMLDivElement> {
   onBlobChange?: (url: FileToBlob) => void
 }
 
 const FileInput = ({
   children,
   onBlobChange,
+  ...rest
 }: PropsWithChildren<FileInputProps>) => {
   const inputRef = useRef<HTMLInputElement>(null)
   const { mutate, isLoading } = useMutation(
@@ -32,7 +39,11 @@ const FileInput = ({
   const [preview, setPreview] = useState('')
 
   return (
-    <div className="relative" onClick={() => inputRef.current?.click()}>
+    <div
+      {...rest}
+      className={cn('relative', rest.className)}
+      onClick={() => inputRef.current?.click()}
+    >
       {children}
 
       {isLoading ? (

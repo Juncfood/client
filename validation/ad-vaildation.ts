@@ -1,21 +1,35 @@
+import { AdArea, TimeZone } from '@/models/Ad'
 import * as z from 'zod'
+import uploadValidation from './upload-image'
 
 export const adValidation = {
-  POST: z.object({
-    line: z.string().min(1, {
-      message: 'Line is required.',
-    }),
-    title: z.string().min(1, {
-      message: 'Title is required.',
-    }),
-    labelId: z.string().min(1, {
-      message: 'Label ID is required.',
-    }),
-    // FIXME
-    timezone: z.string().min(1, {
-      message: 'Timezone is required',
-    }),
-  }),
+  POST: z
+    .object({
+      line: z.string({
+        required_error: 'Line is required.',
+      }),
+      title: z
+        .string({
+          required_error: 'Title is required.',
+        })
+        .min(1, {
+          message: 'Title is required.',
+        }),
+      timezone: z.enum(
+        [TimeZone.DINNER_RUSH, TimeZone.MIDTIME, TimeZone.MORNING_RUSH],
+        {
+          required_error: 'Timezone is required.',
+        }
+      ),
+      adArea: z.enum(
+        [AdArea.DOORSIDELEFT, AdArea.DOORSIDERIGHT, AdArea.UPPERSIDE],
+        {
+          required_error: 'adArea is required.',
+        }
+      ),
+      // image: uploadValidation.POST,
+    })
+    .merge(uploadValidation.POST),
 }
 
 export type AdValidation<T extends keyof typeof adValidation> = z.infer<

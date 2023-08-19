@@ -1,10 +1,6 @@
 'use client'
 import { cn } from '@/lib/utils'
-import {
-  EventType,
-  useRive,
-  useStateMachineInput,
-} from '@rive-app/react-canvas'
+import { EventType, useRive } from '@rive-app/react-canvas'
 import { HTMLAttributes, useCallback, useEffect } from 'react'
 
 interface LoadingProps extends HTMLAttributes<HTMLDivElement> {
@@ -50,8 +46,15 @@ export default function Loading({
     }
   }, [onLoadingEnd, rive])
   return (
-    <div className={cn('sub-nav-height', className)}>
-      <RiveComponent />
+    <div
+      className={cn(
+        'sub-nav-height flex justify-center items-center',
+        className
+      )}
+    >
+      <div className="w-1/3 h-1/3">
+        <RiveComponent />
+      </div>
     </div>
   )
 }

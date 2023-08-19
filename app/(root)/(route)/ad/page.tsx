@@ -19,7 +19,7 @@ const RegisterPage = async ({
           lineId ? [AdvertiseApi.queries.getAdsByLineId(lineId, timeZone)] : []
         }
       >
-        <h1 className="text-title font-bold mb-[32px]">
+        <h1 className="text-LargeTitle mb-[32px]">
           {isEdit ? 'Edit' : 'Register'}
         </h1>
 

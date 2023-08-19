@@ -48,9 +48,9 @@ const Navbar = () => {
             )}
           >
             {currentTheme === 'dark' ? (
-              <Image src="/logo_white.png" width={145} height={50} alt="logo" />
+              <Image src="/logo_white.svg" width={145} height={50} alt="logo" />
             ) : (
-              <Image src="/logo_black.png" width={145} height={50} alt="logo" />
+              <Image src="/logo_black.svg" width={145} height={50} alt="logo" />
             )}
           </div>
         </Link>

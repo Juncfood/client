@@ -258,6 +258,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@kurkle/color@npm:^0.3.0":
+  version: 0.3.2
+  resolution: "@kurkle/color@npm:0.3.2"
+  checksum: 79e97b31f8f6efb28c69d373f94b0c7480226fe8ec95221f518ac998e156444a496727ce47de6d728eb5c3369288e794cba82cae34253deb0d472d3bfe080e49
+  languageName: node
+  linkType: hard
+
 "@next/env@npm:13.4.18":
   version: 13.4.18
   resolution: "@next/env@npm:13.4.18"
@@ -417,6 +424,34 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@radix-ui/react-accordion@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "@radix-ui/react-accordion@npm:1.1.2"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/primitive": 1.0.1
+    "@radix-ui/react-collapsible": 1.0.3
+    "@radix-ui/react-collection": 1.0.3
+    "@radix-ui/react-compose-refs": 1.0.1
+    "@radix-ui/react-context": 1.0.1
+    "@radix-ui/react-direction": 1.0.1
+    "@radix-ui/react-id": 1.0.1
+    "@radix-ui/react-primitive": 1.0.3
+    "@radix-ui/react-use-controllable-state": 1.0.1
+  peerDependencies:
+    "@types/react": "*"
+    "@types/react-dom": "*"
+    react: ^16.8 || ^17.0 || ^18.0
+    react-dom: ^16.8 || ^17.0 || ^18.0
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+    "@types/react-dom":
+      optional: true
+  checksum: ac8587c705bb723328399eb8759ebc188aa500a6e1884d7b63cbd9e98e8607e7373c4517b2e4c093a08477129be57259e740b465b963f30df63a4e0dadaee09d
+  languageName: node
+  linkType: hard
+
 "@radix-ui/react-arrow@npm:1.0.3":
   version: 1.0.3
   resolution: "@radix-ui/react-arrow@npm:1.0.3"
@@ -434,6 +469,33 @@ __metadata:
     "@types/react-dom":
       optional: true
   checksum: 8cca086f0dbb33360e3c0142adf72f99fc96352d7086d6c2356dbb2ea5944cfb720a87d526fc48087741c602cd8162ca02b0af5e6fdf5f56d20fddb44db8b4c3
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-collapsible@npm:1.0.3":
+  version: 1.0.3
+  resolution: "@radix-ui/react-collapsible@npm:1.0.3"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/primitive": 1.0.1
+    "@radix-ui/react-compose-refs": 1.0.1
+    "@radix-ui/react-context": 1.0.1
+    "@radix-ui/react-id": 1.0.1
+    "@radix-ui/react-presence": 1.0.1
+    "@radix-ui/react-primitive": 1.0.3
+    "@radix-ui/react-use-controllable-state": 1.0.1
+    "@radix-ui/react-use-layout-effect": 1.0.1
+  peerDependencies:
+    "@types/react": "*"
+    "@types/react-dom": "*"
+    react: ^16.8 || ^17.0 || ^18.0
+    react-dom: ^16.8 || ^17.0 || ^18.0
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+    "@types/react-dom":
+      optional: true
+  checksum: 26976e4a72a3e0f4b2c62af2898b3e205c3652af46a3b41cda9a43567fe8381d9ef6afb0b29e3214c450b847f4f2099a533cffc5045844ecab290e9fa6114ca9
   languageName: node
   linkType: hard
 
@@ -1230,6 +1292,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/chartjs@npm:^0.0.31":
+  version: 0.0.31
+  resolution: "@types/chartjs@npm:0.0.31"
+  checksum: 86c679dc331a221980697153295d935db2cccca3265ec26e154f385dbffe353661fb30b04756ea8f9616f2d567da09fb143008e949b3d4af2b67a8871de10fd5
+  languageName: node
+  linkType: hard
+
 "@types/emscripten@npm:^1.39.6":
   version: 1.39.7
   resolution: "@types/emscripten@npm:1.39.7"
@@ -1294,6 +1363,15 @@ __metadata:
   dependencies:
     "@types/react": "*"
   checksum: e02ea908289a7ad26053308248d2b87f6aeafd73d0e2de2a3d435947bcea0422599016ffd1c3e38ff36c42f5e1c87c7417f05b0a157e48649e4a02f21727d54f
+  languageName: node
+  linkType: hard
+
+"@types/react-lottie@npm:^1.2.6":
+  version: 1.2.6
+  resolution: "@types/react-lottie@npm:1.2.6"
+  dependencies:
+    "@types/react": "*"
+  checksum: 7930bad2cc998d62c3be4a0c66edfcbf1d87af6ffca5befa860acec706fd62e6e1e964ecffe88c3ed5a42668606e9ff1f43cc1beff764c679f68aa05166ce746
   languageName: node
   linkType: hard
 
@@ -1860,6 +1938,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"babel-runtime@npm:^6.26.0":
+  version: 6.26.0
+  resolution: "babel-runtime@npm:6.26.0"
+  dependencies:
+    core-js: ^2.4.0
+    regenerator-runtime: ^0.11.0
+  checksum: 8aeade94665e67a73c1ccc10f6fd42ba0c689b980032b70929de7a6d9a12eb87ef51902733f8fefede35afea7a5c3ef7e916a64d503446c1eedc9e3284bd3d50
+  languageName: node
+  linkType: hard
+
 "balanced-match@npm:^1.0.0":
   version: 1.0.2
   resolution: "balanced-match@npm:1.0.2"
@@ -1880,6 +1968,7 @@ __metadata:
   dependencies:
     "@hookform/resolvers": ^3.2.0
     "@prisma/client": 5.1.1
+    "@radix-ui/react-accordion": ^1.1.2
     "@radix-ui/react-dialog": ^1.0.4
     "@radix-ui/react-dropdown-menu": ^2.0.5
     "@radix-ui/react-label": ^2.0.2
@@ -1890,13 +1979,17 @@ __metadata:
     "@tanstack/react-query-devtools": ^4.32.6
     "@tauri-apps/api": ^1.4.0
     "@tauri-apps/cli": ^1.4.0
+    "@types/chartjs": ^0.0.31
     "@types/node": 20.5.0
     "@types/react": 18.2.20
     "@types/react-dom": 18.2.7
+    "@types/react-lottie": ^1.2.6
     "@yarnpkg/pnpify": ^4.0.0-rc.49
     autoprefixer: 10.4.15
     axios: ^1.4.0
     bufferutil: ^4.0.7
+    chart.js: ^4.3.3
+    chartjs: ^0.3.24
     class-variance-authority: ^0.7.0
     cloudinary: ^1.40.0
     clsx: ^2.0.0
@@ -1904,15 +1997,19 @@ __metadata:
     eslint: 8.47.0
     eslint-config-next: 13.4.18
     framer-motion: ^10.16.0
+    json-loader: ^0.5.7
     lucide-react: ^0.268.0
     next: 13.4.18
     next-cloudinary: ^4.18.0
     next-themes: ^0.2.1
     postcss: 8.4.28
     prisma: 5.1.1
+    prop-types: ^15.8.1
     react: 18.2.0
+    react-chartjs-2: ^5.2.0
     react-dom: 18.2.0
     react-hook-form: ^7.45.4
+    react-lottie: ^1.2.3
     react-spinners: ^0.13.8
     socket.io-client: ^4.7.2
     supports-color: ^9.4.0
@@ -2086,6 +2183,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"chart.js@npm:^4.3.3":
+  version: 4.3.3
+  resolution: "chart.js@npm:4.3.3"
+  dependencies:
+    "@kurkle/color": ^0.3.0
+  checksum: 548605fc0a0a64fdc591a41159a2be86c1b408339d6e57b566c04dc157331b003db285a6139801d1700596acde8f0521bc6a156da29388025581619db6600073
+  languageName: node
+  linkType: hard
+
+"chartjs@npm:^0.3.24":
+  version: 0.3.24
+  resolution: "chartjs@npm:0.3.24"
+  checksum: 5b4a1a6cfa21ddad12f8be905203771d2291764b4a7cdab1f58f20a6b2cde7d4f0acc7ab9b39659979e24345ae8912af0572143fca3a66046a95f8b6a8724a52
+  languageName: node
+  linkType: hard
+
 "chokidar@npm:^3.5.3":
   version: 3.5.3
   resolution: "chokidar@npm:3.5.3"
@@ -2251,6 +2364,13 @@ __metadata:
   dependencies:
     is-what: ^4.1.8
   checksum: d39f6601c16b7cbd81cdb1c1f40f2bf0f2ca0297601cf7bfbb4ef1d85374a6a89c559502329f5bada36604464df17623e111fe19a9bb0c3f6b1c92fe2cbe972f
+  languageName: node
+  linkType: hard
+
+"core-js@npm:^2.4.0":
+  version: 2.6.12
+  resolution: "core-js@npm:2.6.12"
+  checksum: 44fa9934a85f8c78d61e0c8b7b22436330471ffe59ec5076fe7f324d6e8cf7f824b14b1c81ca73608b13bdb0fef035bd820989bf059767ad6fa13123bb8bd016
   languageName: node
   linkType: hard
 
@@ -3888,6 +4008,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"json-loader@npm:^0.5.7":
+  version: 0.5.7
+  resolution: "json-loader@npm:0.5.7"
+  checksum: c7d054edf7fd5338847f49008df3cdf744f64507584dff3e6d28f500604eedd9130ca1639caa61747b36ab141e7e8db0e86f8514b2244b6d8b0eb634f1154875
+  languageName: node
+  linkType: hard
+
 "json-schema-traverse@npm:^0.4.1":
   version: 0.4.1
   resolution: "json-schema-traverse@npm:0.4.1"
@@ -4005,6 +4132,13 @@ __metadata:
   bin:
     loose-envify: cli.js
   checksum: 6517e24e0cad87ec9888f500c5b5947032cdfe6ef65e1c1936a0c48a524b81e65542c9c3edc91c97d5bddc806ee2a985dbc79be89215d613b1de5db6d1cfe6f4
+  languageName: node
+  linkType: hard
+
+"lottie-web@npm:^5.1.3":
+  version: 5.12.2
+  resolution: "lottie-web@npm:5.12.2"
+  checksum: af5bc3bc405fd760de8b17a36158d5a8c3e8c586c711d0c63681ddf056b65bc6b54ea36b1fcad782fb02dbe12e696a40e0ba72daf41b8f10ab5b5d1113793636
   languageName: node
   linkType: hard
 
@@ -4872,6 +5006,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-chartjs-2@npm:^5.2.0":
+  version: 5.2.0
+  resolution: "react-chartjs-2@npm:5.2.0"
+  peerDependencies:
+    chart.js: ^4.1.1
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: ace702185be1450e5888a8bcd8b5fc1995067e3b11d236764a67f5567a3d7c32ff16923b8d48d3d39bda6e45135da6c044c9b43fbe8e1978f95aca9d2c0ce348
+  languageName: node
+  linkType: hard
+
 "react-dom@npm:18.2.0":
   version: 18.2.0
   resolution: "react-dom@npm:18.2.0"
@@ -4897,6 +5041,18 @@ __metadata:
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
+  languageName: node
+  linkType: hard
+
+"react-lottie@npm:^1.2.3":
+  version: 1.2.3
+  resolution: "react-lottie@npm:1.2.3"
+  dependencies:
+    babel-runtime: ^6.26.0
+    lottie-web: ^5.1.3
+  peerDependencies:
+    react: ^0.14.7 || ^15.0.0 || ^16.0.0
+  checksum: 05326e40b45cb1f52efe324386875858cec4725392d98033f767566c2f101bdbf59111a42108596ef63c96c897f13cf8d3c612e7a288d0dee3e1b7fb1a7911a2
   languageName: node
   linkType: hard
 
@@ -5011,6 +5167,13 @@ __metadata:
     globalthis: ^1.0.3
     which-builtin-type: ^1.1.3
   checksum: 843e2506c013da66f83635f943c5bd41243bc6c7703298531cfb16eb6baaefd92f83031fa37140ad31c4edc86938b6eb385e6fc85bf1628e79348ed49e044f3d
+  languageName: node
+  linkType: hard
+
+"regenerator-runtime@npm:^0.11.0":
+  version: 0.11.1
+  resolution: "regenerator-runtime@npm:0.11.1"
+  checksum: 3c97bd2c7b2b3247e6f8e2147a002eb78c995323732dad5dc70fac8d8d0b758d0295e7015b90d3d444446ae77cbd24b9f9123ec3a77018e81d8999818301b4f4
   languageName: node
   linkType: hard
 

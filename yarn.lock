@@ -1996,7 +1996,6 @@ __metadata:
     eslint: 8.47.0
     eslint-config-next: 13.4.18
     framer-motion: ^10.16.0
-    json-loader: ^0.5.7
     lucide-react: ^0.268.0
     next: 13.4.18
     next-cloudinary: ^4.18.0
@@ -3997,13 +3996,6 @@ __metadata:
   version: 3.0.1
   resolution: "json-buffer@npm:3.0.1"
   checksum: 9026b03edc2847eefa2e37646c579300a1f3a4586cfb62bf857832b60c852042d0d6ae55d1afb8926163fa54c2b01d83ae24705f34990348bdac6273a29d4581
-  languageName: node
-  linkType: hard
-
-"json-loader@npm:^0.5.7":
-  version: 0.5.7
-  resolution: "json-loader@npm:0.5.7"
-  checksum: c7d054edf7fd5338847f49008df3cdf744f64507584dff3e6d28f500604eedd9130ca1639caa61747b36ab141e7e8db0e86f8514b2244b6d8b0eb634f1154875
   languageName: node
   linkType: hard
 

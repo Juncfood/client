@@ -58,7 +58,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:8.47.0"],\
             ["eslint-config-next", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:13.4.18"],\
             ["framer-motion", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:10.16.0"],\
-            ["json-loader", "npm:0.5.7"],\
             ["lucide-react", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:0.268.0"],\
             ["next", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:13.4.18"],\
             ["next-cloudinary", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:4.18.0"],\
@@ -2631,7 +2630,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:8.47.0"],\
             ["eslint-config-next", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:13.4.18"],\
             ["framer-motion", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:10.16.0"],\
-            ["json-loader", "npm:0.5.7"],\
             ["lucide-react", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:0.268.0"],\
             ["next", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:13.4.18"],\
             ["next-cloudinary", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:4.18.0"],\
@@ -5062,15 +5060,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/json-buffer-npm-3.0.1-f8f6d20603-9026b03edc.zip/node_modules/json-buffer/",\
           "packageDependencies": [\
             ["json-buffer", "npm:3.0.1"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["json-loader", [\
-        ["npm:0.5.7", {\
-          "packageLocation": "./.yarn/cache/json-loader-npm-0.5.7-489a339a93-c7d054edf7.zip/node_modules/json-loader/",\
-          "packageDependencies": [\
-            ["json-loader", "npm:0.5.7"]\
           ],\
           "linkType": "HARD"\
         }]\

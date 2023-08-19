@@ -1,17 +1,25 @@
 import * as z from 'zod'
-export const advertiseValidation = {
-  REGISTER: z.object({
-    호선: z.string({
-      required_error: '호선정보가 없어요.',
+
+export const adValidation = {
+  POST: z.object({
+    line: z.string().min(1, {
+      message: 'Line is required.',
     }),
-    title: z.string({
-      required_error: '제목을 입력해주세요.',
+    title: z.string().min(1, {
+      message: 'Title is required.',
     }),
-    labelId: z.string({
-      required_error: '??',
+    labelId: z.string().min(1, {
+      message: 'Label ID is required.',
+    }),
+    // FIXME
+    timezone: z.string().min(1, {
+      message: 'Timezone is required',
     }),
   }),
 }
-export type Validation<T extends keyof typeof advertiseValidation> = z.infer<
-  (typeof advertiseValidation)[T]
+
+export type AdValidation<T extends keyof typeof adValidation> = z.infer<
+  (typeof adValidation)[T]
 >
+
+export default adValidation

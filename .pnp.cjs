@@ -51,7 +51,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["axios", "npm:1.4.0"],\
             ["bufferutil", "npm:4.0.7"],\
             ["chart.js", "npm:4.3.3"],\
-            ["chartjs", "npm:0.3.24"],\
             ["class-variance-authority", "npm:0.7.0"],\
             ["cloudinary", "npm:1.40.0"],\
             ["clsx", "npm:2.0.0"],\
@@ -2625,7 +2624,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["axios", "npm:1.4.0"],\
             ["bufferutil", "npm:4.0.7"],\
             ["chart.js", "npm:4.3.3"],\
-            ["chartjs", "npm:0.3.24"],\
             ["class-variance-authority", "npm:0.7.0"],\
             ["cloudinary", "npm:1.40.0"],\
             ["clsx", "npm:2.0.0"],\
@@ -2841,15 +2839,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["chart.js", "npm:4.3.3"],\
             ["@kurkle/color", "npm:0.3.2"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["chartjs", [\
-        ["npm:0.3.24", {\
-          "packageLocation": "./.yarn/cache/chartjs-npm-0.3.24-2521451a24-5b4a1a6cfa.zip/node_modules/chartjs/",\
-          "packageDependencies": [\
-            ["chartjs", "npm:0.3.24"]\
           ],\
           "linkType": "HARD"\
         }]\

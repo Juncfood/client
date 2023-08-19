@@ -7,8 +7,6 @@ import MobileSidebar from '@/components/mobile-sidebar'
 import { useLayoutEffect, useRef } from 'react'
 
 import Image from 'next/image'
-import logoBlack from '@/public/logo_black.png'
-import logoWhite from '@/public/logo_white.png'
 
 import { useTheme } from 'next-themes'
 
@@ -50,9 +48,9 @@ const Navbar = () => {
             )}
           >
             {currentTheme === 'dark' ? (
-              <Image src={logoWhite} width={145} height={50} alt="logo" />
+              <Image src="/logo_white.png" width={145} height={50} alt="logo" />
             ) : (
-              <Image src={logoBlack} width={145} height={50} alt="logo" />
+              <Image src="/logo_black.png" width={145} height={50} alt="logo" />
             )}
           </div>
         </Link>

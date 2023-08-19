@@ -1989,7 +1989,6 @@ __metadata:
     axios: ^1.4.0
     bufferutil: ^4.0.7
     chart.js: ^4.3.3
-    chartjs: ^0.3.24
     class-variance-authority: ^0.7.0
     cloudinary: ^1.40.0
     clsx: ^2.0.0
@@ -2189,13 +2188,6 @@ __metadata:
   dependencies:
     "@kurkle/color": ^0.3.0
   checksum: 548605fc0a0a64fdc591a41159a2be86c1b408339d6e57b566c04dc157331b003db285a6139801d1700596acde8f0521bc6a156da29388025581619db6600073
-  languageName: node
-  linkType: hard
-
-"chartjs@npm:^0.3.24":
-  version: 0.3.24
-  resolution: "chartjs@npm:0.3.24"
-  checksum: 5b4a1a6cfa21ddad12f8be905203771d2291764b4a7cdab1f58f20a6b2cde7d4f0acc7ab9b39659979e24345ae8912af0572143fca3a66046a95f8b6a8724a52
   languageName: node
   linkType: hard
 

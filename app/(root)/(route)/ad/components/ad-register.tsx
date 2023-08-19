@@ -172,7 +172,7 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
           name="image"
           render={({ field }) => (
             <FileInput
-              className="aspect-[524/372]  w-2/3 bg-gray-300 rounded-[10px] flex flex-col justify-center items-center"
+              className="aspect-[524/372] mb-4 w-2/3 bg-gray-300 rounded-[10px] flex flex-col justify-center items-center"
               onBlobChange={(blob) => field.onChange(blob)}
             >
               <div>

@@ -11,26 +11,8 @@ import Navbar from '@/components/navbar'
 import Sidebar from '@/components/sidebar'
 import PrefetchQuery from '@/hydrate/prefetch-query'
 import { SubwayApi } from '@/api/subway'
-
-const pretendard = localFont({
-  src: './PretendardVariable.woff2',
-  fallback: [
-    'Pretendard',
-    '-apple-system',
-    'BlinkMacSystemFont',
-    'system-ui',
-    'Roboto',
-    'Helvetica Neue',
-    'Segoe UI',
-    'Apple SD Gothic Neo',
-    'Noto Sans KR',
-    'Malgun Gothic',
-    'Apple Color Emoji',
-    'Segoe UI Emoji',
-    'Segoe UI Symbol',
-    'sans-serif',
-  ],
-})
+import { Inter } from 'next/font/google'
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: '',
@@ -42,11 +24,7 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html
-      lang="ko"
-      className={cn(pretendard.className)}
-      suppressHydrationWarning
-    >
+    <html lang="ko" className={cn(inter.className)} suppressHydrationWarning>
       <body>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <QueryProvider>

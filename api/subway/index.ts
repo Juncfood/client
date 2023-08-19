@@ -1,5 +1,6 @@
 import instance, { QueryType } from '@/api/instance'
-import { Line } from '@/models/Ad'
+import { Line } from '@/models/Line'
+
 export const SubwayApi = {
   queries: {
     getLines: {

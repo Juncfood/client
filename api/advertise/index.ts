@@ -7,10 +7,10 @@ export const AdvertiseApi = {
       return {
         queryKey: ['get-ads-by-line-id', id],
         queryFn: async ({ queryKey }) => {
-          const res = await instance.get<Ad[]>(`/ad/line/${queryKey}`)
+          const res = await instance.get<Ad[]>(`/ad/line/${queryKey[1]}`)
           return res.data
         },
-      } satisfies QueryType<Ad[]>
+      } as QueryType<Ad[]>
     },
   },
 }

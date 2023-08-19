@@ -7,15 +7,16 @@ import {
 } from '@tanstack/react-query'
 import { PropsWithChildren } from 'react'
 
-interface HydrateQueryProps {
-  queries: UseQueryOptions<unknown, unknown, any, QueryKey>[]
+interface HydrateQueryProps<T> {
+  queries: T[]
 }
 
-const PrefetchQuery = async ({
+const PrefetchQuery = async <T,>({
   children,
   queries,
-}: PropsWithChildren<HydrateQueryProps>) => {
+}: PropsWithChildren<HydrateQueryProps<T>>) => {
   const queryClient = getQueryClient()
+  // @ts-ignore
   const queriesList = queries.map((query) => queryClient.prefetchQuery(query))
   await Promise.allSettled(queriesList)
   const dehydratedState = dehydrate(queryClient)

@@ -20,12 +20,12 @@ const Sidebar = () => {
       label: 'Create',
       pro: true,
     },
-    {
-      icon: Settings,
-      href: '/settings',
-      label: 'Settings',
-      pro: false,
-    },
+    // {
+    //   icon: Settings,
+    //   href: '/settings',
+    //   label: 'Settings',
+    //   pro: false,
+    // },
   ]
 
   const onNavigate = (url: string, pro: boolean) => {

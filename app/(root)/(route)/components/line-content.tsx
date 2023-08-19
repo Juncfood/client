@@ -28,8 +28,8 @@ export function LineAddStatus({ line }: { line: Line }) {
       {filterdData?.length ? (
         filterdData?.map((advertise) => (
           <div key={advertise.id} className="p-4">
-            <div className="w-full flex justify-between items-center">
-              <h1 className="text-Body1 mb-4">{advertise.type}</h1>
+            <div className="w-full flex justify-between items-center mb-4">
+              <h1 className="text-Body1">{advertise.type}</h1>
               <Link
                 href={`/ad?lineId=${line.id}&timeZone=${advertise.timeZone}`}
               >
@@ -47,8 +47,9 @@ export function LineAddStatus({ line }: { line: Line }) {
                 <div
                   className={cn(
                     'relative  md:h-full',
-                    advertise.type === AdArea.UPPERSIDE &&
-                      'col-span-2 aspect-[4/1]'
+                    advertise.type === AdArea.UPPERSIDE
+                      ? 'col-span-2 aspect-[4/1]'
+                      : 'col-span-2 h-[200px] md:h-full md:col-span-1 md:row-span-2'
                   )}
                 >
                   <Image

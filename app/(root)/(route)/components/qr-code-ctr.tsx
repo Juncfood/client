@@ -32,10 +32,6 @@ const QRCoreCTRChart = () => {
     MetricApi.queries.getOccupied.queryKey
   ) as Ad[]
 
-  const lineList = queryClient.getQueryData(
-    MetricApi.queries.getOccupied.queryKey
-  ) as Ad[]
-
   const [...chartData] = useQueries({
     queries: occupiedList.map((occupied) =>
       MetricApi.queries.getQRCodeCTR(occupied.id)
@@ -58,6 +54,8 @@ const QRCoreCTRChart = () => {
 
   return (
     <div>
+      <h1>QR Code CTR</h1>
+
       <Line
         data={{
           labels,
@@ -72,7 +70,20 @@ const QRCoreCTRChart = () => {
             }
           }),
         }}
-      />{' '}
+        options={{
+          animation: {
+            easing: 'easeOutQuad',
+          },
+          indexAxis: 'x',
+          scales: {
+            x: {
+              grid: {
+                display: false,
+              },
+            },
+          },
+        }}
+      />
     </div>
   )
 }

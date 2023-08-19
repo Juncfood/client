@@ -49,6 +49,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["class-variance-authority", "npm:0.7.0"],\
             ["cloudinary", "npm:1.40.0"],\
             ["clsx", "npm:2.0.0"],\
+            ["debug", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:4.3.4"],\
             ["eslint", "npm:8.47.0"],\
             ["eslint-config-next", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:13.4.18"],\
             ["framer-motion", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:10.16.0"],\
@@ -2469,6 +2470,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["class-variance-authority", "npm:0.7.0"],\
             ["cloudinary", "npm:1.40.0"],\
             ["clsx", "npm:2.0.0"],\
+            ["debug", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:4.3.4"],\
             ["eslint", "npm:8.47.0"],\
             ["eslint-config-next", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:13.4.18"],\
             ["framer-motion", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:10.16.0"],\
@@ -2966,6 +2968,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/supports-color", null],\
             ["ms", "npm:2.1.2"],\
             ["supports-color", null]\
+          ],\
+          "packagePeers": [\
+            "@types/supports-color",\
+            "supports-color"\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:4.3.4", {\
+          "packageLocation": "./.yarn/__virtual__/debug-virtual-92d04cbf62/0/cache/debug-npm-4.3.4-4513954577-3dbad3f94e.zip/node_modules/debug/",\
+          "packageDependencies": [\
+            ["debug", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:4.3.4"],\
+            ["@types/supports-color", null],\
+            ["ms", "npm:2.1.2"],\
+            ["supports-color", "npm:9.4.0"]\
           ],\
           "packagePeers": [\
             "@types/supports-color",\

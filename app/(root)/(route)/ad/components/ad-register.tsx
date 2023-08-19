@@ -1,10 +1,8 @@
 'use client'
 import { AdvertiseApi } from '@/api/advertise'
-import { uploadImage } from '@/api/external/upload-image'
 import instance from '@/api/instance'
 import { SubwayApi } from '@/api/subway'
 import FileInput from '@/components/form/file-input'
-import ImageUploadButton from '@/components/image-upload'
 import Timezone from '@/components/timezone'
 import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form'
@@ -19,14 +17,15 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { useToast } from '@/components/ui/use-toast'
-import { blobToFile } from '@/lib/utils'
 import { Ad, AdArea, TimeZone } from '@/models/Ad'
 import adValidation from '@/validation/ad-vaildation'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import { useEffect, useMemo, useRef, useState } from 'react'
+
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 
@@ -124,9 +123,11 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onValid)}
-        className="grid grid-cols-[20%_1fr] items-center gap-y-12"
+        className="grid grid-cols-[20%_1fr] items-center gap-y-6"
       >
-        <Label>Line</Label>
+        <Label>
+          <h3 className="text-Title1">Line</h3>
+        </Label>
         <FormField
           control={form.control}
           name="line"
@@ -151,7 +152,9 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
             </FormItem>
           )}
         />
-        <Label>Title</Label>
+        <Label>
+          <h3 className="text-Title1">Title</h3>
+        </Label>
         <FormField
           control={form.control}
           name="title"
@@ -167,8 +170,8 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
           )}
         />
         <Label>
-          <h3>Timezone</h3>
-          <p>(select 1)</p>
+          <h3 className="text-Title1">Timezone</h3>
+          <p className="text-Body1 text-gray-300">(Select 1)</p>
         </Label>
         <FormField
           control={form.control}
@@ -176,7 +179,7 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
           render={({ field }) => (
             <RadioGroup
               disabled={isLoading}
-              className="flex justify-between"
+              className="flex justify-between py-4"
               defaultValue={field.value}
             >
               {Object.entries(timeType).map((timeKey) => (
@@ -195,7 +198,7 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
         />
         {adList.length ? (
           <>
-            <Label>Ad Area</Label>
+            <Label className="text-Title1">Ad Area</Label>
             <FormField
               control={form.control}
               name="adId"
@@ -255,15 +258,23 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
             <FileInput
               defaultValue={field.value}
               disabled={isLoading}
-              className="aspect-[524/372]  w-2/3 bg-blue-300"
+              className="aspect-[524/372]  w-2/3 bg-blue-300 flex flex-col justify-center items-center"
               onBlobChange={(blob) => field.onChange(blob)}
             >
-              <div>??</div>
+              <div>
+                <Image
+                  src="/registerImg.svg"
+                  width={40}
+                  height={40}
+                  alt="register your img"
+                />
+              </div>
+              <div className="text-white text-sm mt-[8px]">Select Image</div>
             </FileInput>
           )}
         />
 
-        <Button className="bg-inverse w-full col-span-2">SAVE</Button>
+        <Button className="bg-inverse w-full col-span-2 py-6">SAVE</Button>
       </form>
     </Form>
   )

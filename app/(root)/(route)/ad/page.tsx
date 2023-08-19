@@ -36,7 +36,9 @@ const RegisterPage = async ({
           lineId ? [AdvertiseApi.queries.getAdsByLineId(lineId, timeZone)] : []
         }
       >
-        <h1 className="text-title font-bold">{isEdit ? 'Edit' : 'Register'}</h1>
+        <h1 className="text-LargeTitle mb-[32px]">
+          {isEdit ? 'Edit' : 'Register'}
+        </h1>
 
         <AdRegister ad={ad} />
       </PrefetchQuery>

@@ -1,13 +1,13 @@
-import instance from '@/api/instance'
-import { QueryKey, UseQueryOptions } from '@tanstack/react-query'
+import instance, { QueryType } from '@/api/instance'
+import { Line } from '@/models/Ad'
 export const SubwayApi = {
   queries: {
     getLines: {
       queryKey: ['all-line'],
       queryFn: async () => {
-        const response = await instance.get('/line/all')
+        const response = await instance.get<Line[]>('/line/all')
         return response.data
       },
-    } as UseQueryOptions<unknown, unknown, any, QueryKey>,
+    } satisfies QueryType<Line[]>,
   },
 }

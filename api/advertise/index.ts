@@ -1,15 +1,16 @@
-import instance from '@/api/instance'
-import { QueryKey, UseQueryOptions } from '@tanstack/react-query'
-export const SubwayApi = {
+import instance, { QueryType } from '@/api/instance'
+import { Ad } from '@/models/Ad'
+
+export const AdvertiseApi = {
   queries: {
     getAdsByLineId(id: string) {
       return {
         queryKey: ['get-ads-by-line-id', id],
         queryFn: async ({ queryKey }) => {
-          const res = await instance.get(`/ad/line/${queryKey}`)
+          const res = await instance.get<Ad[]>(`/ad/line/${queryKey}`)
           return res.data
         },
-      } as UseQueryOptions<unknown, unknown, any, string[]>
+      } satisfies QueryType<Ad[]>
     },
   },
 }

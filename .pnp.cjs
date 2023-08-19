@@ -39,6 +39,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@rive-app/react-canvas", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:4.1.4"],\
             ["@tanstack/react-query", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:4.32.6"],\
             ["@tanstack/react-query-devtools", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:4.32.6"],\
+            ["@tanstack/react-table", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:8.9.3"],\
             ["@tauri-apps/api", "npm:1.4.0"],\
             ["@tauri-apps/cli", "npm:1.4.0"],\
             ["@types/chartjs", "npm:0.0.31"],\
@@ -58,7 +59,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:8.47.0"],\
             ["eslint-config-next", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:13.4.18"],\
             ["framer-motion", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:10.16.0"],\
-            ["json-loader", "npm:0.5.7"],\
             ["lucide-react", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:0.268.0"],\
             ["next", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:13.4.18"],\
             ["next-cloudinary", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:4.18.0"],\
@@ -1653,6 +1653,42 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@tanstack/react-table", [\
+        ["npm:8.9.3", {\
+          "packageLocation": "./.yarn/cache/@tanstack-react-table-npm-8.9.3-af8d0ec3fb-a71fbbc608.zip/node_modules/@tanstack/react-table/",\
+          "packageDependencies": [\
+            ["@tanstack/react-table", "npm:8.9.3"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:8.9.3", {\
+          "packageLocation": "./.yarn/__virtual__/@tanstack-react-table-virtual-37b9b70d6a/0/cache/@tanstack-react-table-npm-8.9.3-af8d0ec3fb-a71fbbc608.zip/node_modules/@tanstack/react-table/",\
+          "packageDependencies": [\
+            ["@tanstack/react-table", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:8.9.3"],\
+            ["@tanstack/table-core", "npm:8.9.3"],\
+            ["@types/react", "npm:18.2.20"],\
+            ["@types/react-dom", "npm:18.2.7"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react",\
+            "react-dom",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@tanstack/table-core", [\
+        ["npm:8.9.3", {\
+          "packageLocation": "./.yarn/cache/@tanstack-table-core-npm-8.9.3-993026ff01-52c7e57daa.zip/node_modules/@tanstack/table-core/",\
+          "packageDependencies": [\
+            ["@tanstack/table-core", "npm:8.9.3"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@tauri-apps/api", [\
         ["npm:1.4.0", {\
           "packageLocation": "./.yarn/cache/@tauri-apps-api-npm-1.4.0-152f8109f9-0c24b72d6b.zip/node_modules/@tauri-apps/api/",\
@@ -2612,6 +2648,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@rive-app/react-canvas", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:4.1.4"],\
             ["@tanstack/react-query", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:4.32.6"],\
             ["@tanstack/react-query-devtools", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:4.32.6"],\
+            ["@tanstack/react-table", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:8.9.3"],\
             ["@tauri-apps/api", "npm:1.4.0"],\
             ["@tauri-apps/cli", "npm:1.4.0"],\
             ["@types/chartjs", "npm:0.0.31"],\
@@ -2631,7 +2668,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:8.47.0"],\
             ["eslint-config-next", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:13.4.18"],\
             ["framer-motion", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:10.16.0"],\
-            ["json-loader", "npm:0.5.7"],\
             ["lucide-react", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:0.268.0"],\
             ["next", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:13.4.18"],\
             ["next-cloudinary", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:4.18.0"],\
@@ -5062,15 +5098,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/json-buffer-npm-3.0.1-f8f6d20603-9026b03edc.zip/node_modules/json-buffer/",\
           "packageDependencies": [\
             ["json-buffer", "npm:3.0.1"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["json-loader", [\
-        ["npm:0.5.7", {\
-          "packageLocation": "./.yarn/cache/json-loader-npm-0.5.7-489a339a93-c7d054edf7.zip/node_modules/json-loader/",\
-          "packageDependencies": [\
-            ["json-loader", "npm:0.5.7"]\
           ],\
           "linkType": "HARD"\
         }]\

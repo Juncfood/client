@@ -108,6 +108,9 @@ module.exports = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
+        inverse: {
+          DEFAULT: 'hsl(var(--inverse))',
+        },
       },
       fontSize: {
         title: '2rem',

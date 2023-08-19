@@ -20,6 +20,7 @@
     "@rive-app/react-canvas": "^4.1.4",
     "@tanstack/react-query": "^4.32.6",
     "@tanstack/react-query-devtools": "^4.32.6",
+    "@tanstack/react-table": "^8.9.3",
     "@tauri-apps/api": "^1.4.0",
     "@types/node": "20.5.0",
     "@types/react": "18.2.20",

@@ -1155,6 +1155,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/react-table@npm:^8.9.3":
+  version: 8.9.3
+  resolution: "@tanstack/react-table@npm:8.9.3"
+  dependencies:
+    "@tanstack/table-core": 8.9.3
+  peerDependencies:
+    react: ">=16"
+    react-dom: ">=16"
+  checksum: a71fbbc608bb11b79ecd2b1a838fad2fc4140f9eb1a25bd44b6b1b4c6acd52741b5745e3e022390c642c284d0d528249360e322c0dbc3d34fea031611c207a7d
+  languageName: node
+  linkType: hard
+
+"@tanstack/table-core@npm:8.9.3":
+  version: 8.9.3
+  resolution: "@tanstack/table-core@npm:8.9.3"
+  checksum: 52c7e57daaa3160450fb0bde702ec0b8aab159e2b19efd1012e03b3e167acc52839f5b39578cc8bf96e91346719f400d0435a5191384c168d9477da82f276c38
+  languageName: node
+  linkType: hard
+
 "@tauri-apps/api@npm:^1.4.0":
   version: 1.4.0
   resolution: "@tauri-apps/api@npm:1.4.0"
@@ -1977,6 +1996,7 @@ __metadata:
     "@rive-app/react-canvas": ^4.1.4
     "@tanstack/react-query": ^4.32.6
     "@tanstack/react-query-devtools": ^4.32.6
+    "@tanstack/react-table": ^8.9.3
     "@tauri-apps/api": ^1.4.0
     "@tauri-apps/cli": ^1.4.0
     "@types/chartjs": ^0.0.31
@@ -1996,7 +2016,6 @@ __metadata:
     eslint: 8.47.0
     eslint-config-next: 13.4.18
     framer-motion: ^10.16.0
-    json-loader: ^0.5.7
     lucide-react: ^0.268.0
     next: 13.4.18
     next-cloudinary: ^4.18.0
@@ -3997,13 +4016,6 @@ __metadata:
   version: 3.0.1
   resolution: "json-buffer@npm:3.0.1"
   checksum: 9026b03edc2847eefa2e37646c579300a1f3a4586cfb62bf857832b60c852042d0d6ae55d1afb8926163fa54c2b01d83ae24705f34990348bdac6273a29d4581
-  languageName: node
-  linkType: hard
-
-"json-loader@npm:^0.5.7":
-  version: 0.5.7
-  resolution: "json-loader@npm:0.5.7"
-  checksum: c7d054edf7fd5338847f49008df3cdf744f64507584dff3e6d28f500604eedd9130ca1639caa61747b36ab141e7e8db0e86f8514b2244b6d8b0eb634f1154875
   languageName: node
   linkType: hard
 

@@ -986,6 +986,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rive-app/canvas@npm:2.1.5":
+  version: 2.1.5
+  resolution: "@rive-app/canvas@npm:2.1.5"
+  checksum: 7918443171a2331059ecbcaaaae625f37eec50bcfec23b8c4cc4142d7a1a525b4dc2cc30053d6c3bcbcec0c5b825f0724f1ce3a087feca52c14b07caecfecc4d
+  languageName: node
+  linkType: hard
+
+"@rive-app/react-canvas@npm:^4.1.4":
+  version: 4.1.4
+  resolution: "@rive-app/react-canvas@npm:4.1.4"
+  dependencies:
+    "@rive-app/canvas": 2.1.5
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: d9a948a93ea19c7abd8127962c631265ed82436aca9e31127ec703a003fc9394047325c215488bac753bf8e991b1d3f088205625a026f7e05ad7fe04dd3b9e95
+  languageName: node
+  linkType: hard
+
 "@rushstack/eslint-patch@npm:^1.1.3":
   version: 1.3.3
   resolution: "@rushstack/eslint-patch@npm:1.3.3"
@@ -1867,6 +1885,7 @@ __metadata:
     "@radix-ui/react-label": ^2.0.2
     "@radix-ui/react-slot": ^1.0.2
     "@radix-ui/react-toast": ^1.1.4
+    "@rive-app/react-canvas": ^4.1.4
     "@tanstack/react-query": ^4.32.6
     "@tanstack/react-query-devtools": ^4.32.6
     "@tauri-apps/api": ^1.4.0
@@ -1894,6 +1913,7 @@ __metadata:
     react: 18.2.0
     react-dom: 18.2.0
     react-hook-form: ^7.45.4
+    react-spinners: ^0.13.8
     socket.io-client: ^4.7.2
     supports-color: ^9.4.0
     tailwind-merge: ^1.14.0
@@ -4912,6 +4932,16 @@ __metadata:
     "@types/react":
       optional: true
   checksum: 2c7fe9cbd766f5e54beb4bec2e2efb2de3583037b23fef8fa511ab426ed7f1ae992382db5acd8ab5bfb030a4b93a06a2ebca41377d6eeaf0e6791bb0a59616a4
+  languageName: node
+  linkType: hard
+
+"react-spinners@npm:^0.13.8":
+  version: 0.13.8
+  resolution: "react-spinners@npm:0.13.8"
+  peerDependencies:
+    react: ^16.0.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
+  checksum: cb58f916bbf00c4f7fc33c1a75a8c0f91a98a42af26944340a0e29e4b3a97937a03f0292bc444eb5f5f0bea099344b580f9c04a81524246dadbf0571bdb57e62
   languageName: node
   linkType: hard
 

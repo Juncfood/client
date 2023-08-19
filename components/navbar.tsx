@@ -4,10 +4,33 @@ import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import { ModeToggle } from '@/components/mode-toggle'
 import MobileSidebar from '@/components/mobile-sidebar'
+import { useLayoutEffect, useRef } from 'react'
 
 const Navbar = () => {
+  const navRef = useRef<HTMLDivElement>(null)
+
+  const shoudHideNavPathList = ['/speech']
+
+  const setStyleFromNavHeight = () => {
+    if (navRef.current) {
+      document.documentElement.style.setProperty(
+        '--nav-height',
+        navRef.current.offsetHeight + 'px'
+      )
+    }
+  }
+  useLayoutEffect(() => {
+    navRef.current?.addEventListener('resize', setStyleFromNavHeight)
+    setStyleFromNavHeight()
+    return () => {
+      navRef.current?.removeEventListener('resize', setStyleFromNavHeight)
+    }
+  }, [])
   return (
-    <div className="fixed w-full z-50 flex justify-between items-center py-2 px-4 border-b border-primary/10 bg-secondary h-16">
+    <nav
+      ref={navRef}
+      className="fixed w-full z-50 flex justify-between items-center py-2 px-4 border-b border-primary/10 bg-secondary h-16"
+    >
       <div className="flex items-center">
         <MobileSidebar />
         <Link href="/">
@@ -27,7 +50,7 @@ const Navbar = () => {
         </Button> */}
         <ModeToggle />
       </div>
-    </div>
+    </nav>
   )
 }
 

@@ -1,9 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
-
 import { Toaster } from '@/components/ui/toaster'
 import { QueryProvider } from '@/components/query-provider'
-import localFont from 'next/font/local'
 import ThemeProvider from '@/components/theme-provier'
 import { cn } from '@/lib/utils'
 import SocketProvider from '@/context/socket-context'
@@ -16,7 +14,7 @@ import { MetricApi } from '@/api/metric'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: '',
+  title: 'AdWay',
 }
 
 export default async function RootLayout({
@@ -26,6 +24,27 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="ko" className={cn(inter.className)} suppressHydrationWarning>
+      <head>
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff" />
+      </head>
       <body>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <QueryProvider>

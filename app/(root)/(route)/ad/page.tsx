@@ -4,9 +4,7 @@ import { Ad, TimeZone } from '@/models/Ad'
 import instance from '@/api/instance'
 import PrefetchQuery from '@/hydrate/prefetch-query'
 import { AdvertiseApi } from '@/api/advertise'
-import getQueryClient from '@/app/getQueryClient'
-import { QueryKey } from '@tanstack/react-query'
-
+export const dynamic = 'force-static'
 const getEditableAd = async (lineId: string, timeZone: string) => {
   const res = await instance.get<Ad[]>(`/ad`, {
     params: {

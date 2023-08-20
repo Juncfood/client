@@ -23,7 +23,7 @@ import adValidation from '@/validation/ad-vaildation'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import Image from 'next/image'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'

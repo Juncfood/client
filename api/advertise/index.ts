@@ -11,10 +11,11 @@ export const AdvertiseApi = {
       mutationKey: ['update-ad'],
       mutationFn: async (param) => {
         const { adId, image, line, timezone, title, landingUrl } = param
-        const { type, url, name } = image
+        const { type, url, name = '', size } = image
         let imageUrl
         if (url && !type && !name) imageUrl = url
         else {
+          //@ts-ignore
           const { secure_url } = await uploadImage(blobToFile(image))
           imageUrl = secure_url
         }

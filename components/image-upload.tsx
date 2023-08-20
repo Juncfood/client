@@ -15,6 +15,7 @@ const ImageUploadButton = () => {
   })
 
   const onValid = async (data: z.infer<(typeof uploadValidation)['POST']>) => {
+    // @ts-ignore
     const res = await uploadImage(blobToFile(data.image))
     console.log(res)
   }

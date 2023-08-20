@@ -26,7 +26,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import Image from 'next/image'
 import { useRouter, useSearchParams } from 'next/navigation'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 
@@ -92,7 +92,6 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
 
   useEffect(() => {
     const error = Object.entries(form.formState.errors)
-    console.log(error)
     if (error.length) {
       toast({
         title: 'Error',
@@ -115,16 +114,23 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
   const timeZone = form.watch('timezone')
   const line = form.watch('line')
 
-  const formValue = form.getValues()
-  const previewUrl = formValue.image.url
+  const {
+    image: { url: previewUrl },
+    title,
+    adId,
+  } = form.getValues()
+  const selectedAdArea = useMemo(
+    () => adList.find((i) => i.id === adId),
+    [adId, adList]
+  )
 
   useEffect(() => {
     if (line && timeZone) {
       updateAdList(line, timeZone)
     }
-    console.log('!!', previewUrl)
-  }, [form, line, timeZone])
+  }, [form, line, previewUrl, timeZone])
 
+  console.log(selectedAdArea?.type)
   return (
     <>
       <Form {...form}>
@@ -283,22 +289,35 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
           <h3 className="text-Title1 mb-6">Preview</h3>
         </form>
       </Form>
-      <Image
-        src="/preview.svg"
-        width={960}
-        height={600}
-        alt="register your img"
-      />
-      {previewUrl && (
-        <div className={cn('relative w-[100px] h-[40px]')}>
-          <Image
-            src={previewUrl}
-            className="absolute right-0 z-50 hidden w-1/2 sm:block"
-            alt={formValue.title || ''}
-            fill
-          />
-        </div>
-      )}
+      <div className="relative w-full aspect-[16/9]">
+        <Image
+          src="/preview.svg"
+          // width={960}
+          // height={600}
+          fill
+          alt="register your img"
+        />
+        {previewUrl && selectedAdArea?.type && (
+          <div
+            className={cn(
+              'absolute w-full h-full outline-2 border-2 border-white'
+            )}
+          >
+            <img
+              src={previewUrl}
+              className={cn(
+                'absolute z-50 sm:block outline-2 border-2 border-white',
+                selectedAdArea?.type === AdArea.UPPERSIDE
+                  ? 'left-[6.8%] top-[15%] width-[34%] height-[15%]'
+                  : selectedAdArea?.type === AdArea.DOORSIDERIGHT
+                  ? 'w-[13%] h-[17%] right-[9.2%] height-[16.4%] width-[13%] top-[35%]'
+                  : ''
+              )}
+              alt={title || ''}
+            />
+          </div>
+        )}
+      </div>
       {/* <Image src={previewUrl}  width={150}, height={150} alt='프로필 이미지 입니다.' /> */}
       <Button className="bg-inverse w-full col-span-2 py-6 mt-16">SAVE</Button>
     </>

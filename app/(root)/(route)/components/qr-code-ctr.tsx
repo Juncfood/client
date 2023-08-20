@@ -54,7 +54,7 @@ const QRCoreCTRChart = () => {
 
   return (
     <div>
-      <h1 className="text-Title1 mb-6">QR Code CTR</h1>
+      <h1 className="text-Title1 mb-6">QR Code Scan Count</h1>
 
       <Line
         data={{

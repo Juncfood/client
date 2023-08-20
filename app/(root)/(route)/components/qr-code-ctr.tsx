@@ -52,6 +52,7 @@ const QRCoreCTRChart = () => {
     [parsedData]
   )
 
+  console.log(parsedData, '<<parsedData')
   return (
     <div>
       <h1 className="text-Title1 mb-6">QR Code Scan Count</h1>

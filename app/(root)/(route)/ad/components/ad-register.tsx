@@ -29,6 +29,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
+import Loading from '@/components/loading'
 
 const timeType = { ...TimeZone }
 const areaType: { [key in AdArea]: { name: string; value: AdArea } } = {
@@ -328,6 +329,12 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
           </Button>
         </form>
       </Form>
+      {/* {!isLoading && (
+        <div className="fixed top-0 left-0 w-[100dvw] h-[100dvh]">
+          <div className="bg-background/25 w-full h-full" />
+          <Loading loading={!isLoading} />
+        </div>
+      )} */}
     </>
   )
 }

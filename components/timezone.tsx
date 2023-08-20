@@ -13,7 +13,6 @@ interface TimezoneProps {
 
 const Timezone = ({
   timeType,
-  alreadySelect,
   disabled,
   selected,
   onChange,
@@ -22,7 +21,7 @@ const Timezone = ({
   return (
     <div
       className={cn(
-        'flex flex-col justify-center items-center px-10 py-4 border-2 border-gray-300 rounded-sm',
+        'flex flex-col justify-center items-center px-10 py-4 border-2 border-gray-300 rounded-sm whitespace-nowrap',
         !selected && 'bg-gray-300 opacity-30',
         disabled && 'opacity-30'
       )}

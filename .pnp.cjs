@@ -29,6 +29,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["@hookform/resolvers", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:3.2.0"],\
+            ["@kurkle/color", "npm:0.3.2"],\
             ["@prisma/client", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:5.1.1"],\
             ["@radix-ui/react-accordion", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:1.1.2"],\
             ["@radix-ui/react-dialog", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:1.0.4"],\
@@ -54,6 +55,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["axios", "npm:1.4.0"],\
             ["bufferutil", "npm:4.0.7"],\
             ["chart.js", "npm:4.3.3"],\
+            ["chartjs-plugin-autocolors", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:0.2.2"],\
             ["class-variance-authority", "npm:0.7.0"],\
             ["cloudinary", "npm:1.40.0"],\
             ["clsx", "npm:2.0.0"],\
@@ -2789,6 +2791,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["boiler-next", "workspace:."],\
             ["@hookform/resolvers", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:3.2.0"],\
+            ["@kurkle/color", "npm:0.3.2"],\
             ["@prisma/client", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:5.1.1"],\
             ["@radix-ui/react-accordion", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:1.1.2"],\
             ["@radix-ui/react-dialog", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:1.0.4"],\
@@ -2814,6 +2817,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["axios", "npm:1.4.0"],\
             ["bufferutil", "npm:4.0.7"],\
             ["chart.js", "npm:4.3.3"],\
+            ["chartjs-plugin-autocolors", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:0.2.2"],\
             ["class-variance-authority", "npm:0.7.0"],\
             ["cloudinary", "npm:1.40.0"],\
             ["clsx", "npm:2.0.0"],\
@@ -3040,6 +3044,32 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["chart.js", "npm:4.3.3"],\
             ["@kurkle/color", "npm:0.3.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["chartjs-plugin-autocolors", [\
+        ["npm:0.2.2", {\
+          "packageLocation": "./.yarn/cache/chartjs-plugin-autocolors-npm-0.2.2-6ccb794191-733bec6107.zip/node_modules/chartjs-plugin-autocolors/",\
+          "packageDependencies": [\
+            ["chartjs-plugin-autocolors", "npm:0.2.2"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:0.2.2", {\
+          "packageLocation": "./.yarn/__virtual__/chartjs-plugin-autocolors-virtual-99b6919330/0/cache/chartjs-plugin-autocolors-npm-0.2.2-6ccb794191-733bec6107.zip/node_modules/chartjs-plugin-autocolors/",\
+          "packageDependencies": [\
+            ["chartjs-plugin-autocolors", "virtual:76c3aa1329e11c34b0bd5f115e0986b472db08fb0ef55dda4f994e157a53bdbe913979eb159ce58fb559448282a01fa35abd9b785ce34203b06735e82df79c54#npm:0.2.2"],\
+            ["@kurkle/color", "npm:0.3.2"],\
+            ["@types/chart.js", null],\
+            ["@types/kurkle__color", null],\
+            ["chart.js", "npm:4.3.3"]\
+          ],\
+          "packagePeers": [\
+            "@kurkle/color",\
+            "@types/chart.js",\
+            "@types/kurkle__color",\
+            "chart.js"\
           ],\
           "linkType": "HARD"\
         }]\

@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.2.0",
+    "@kurkle/color": "^0.3.2",
     "@prisma/client": "5.1.1",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-dialog": "^1.0.4",
@@ -33,6 +34,7 @@
     "axios": "^1.4.0",
     "bufferutil": "^4.0.7",
     "chart.js": "^4.3.3",
+    "chartjs-plugin-autocolors": "^0.2.2",
     "class-variance-authority": "^0.7.0",
     "cloudinary": "^1.40.0",
     "clsx": "^2.0.0",

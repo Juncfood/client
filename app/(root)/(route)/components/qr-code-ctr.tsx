@@ -1,12 +1,11 @@
 'use client'
 
 import { MetricApi } from '@/api/metric'
-import { SubwayApi } from '@/api/subway'
 import { Ad } from '@/models/Ad'
 import { useQueries, useQueryClient } from '@tanstack/react-query'
 import { useMemo } from 'react'
 import { Line } from 'react-chartjs-2'
-
+import autocolors from 'chartjs-plugin-autocolors'
 import {
   registerables,
   Chart as ChartJS,
@@ -23,6 +22,7 @@ ChartJS.register(
   Legend,
   ArcElement,
   CategoryScale,
+  autocolors,
   ...registerables
 )
 const QRCoreCTRChart = () => {
@@ -73,6 +73,13 @@ const QRCoreCTRChart = () => {
         options={{
           animation: {
             easing: 'easeOutQuad',
+          },
+          plugins: {
+            autocolors: {
+              enabled: true,
+              mode: 'data',
+              offset: 10,
+            },
           },
           indexAxis: 'x',
           scales: {

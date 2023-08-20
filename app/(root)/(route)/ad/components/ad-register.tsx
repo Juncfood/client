@@ -191,7 +191,7 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
             render={({ field }) => (
               <RadioGroup
                 disabled={isLoading}
-                className="flex justify-between py-4"
+                className="flex flex-wrap md:grid md:grid-cols-3 py-4"
                 defaultValue={field.value}
               >
                 {Object.entries(timeType).map((timeKey) => (

@@ -76,9 +76,16 @@ const LineStatusPage = () => {
                 <span className="text-left text-ellipsis overflow-x-hidden">
                   {line.name}
                 </span>
-                {/* <div className="grid grid-cols-2">
-                </div> */}
-                <span>{line.count}</span>
+                <div className={cn('p-2 flex justify-center items-center')}>
+                  <div
+                    className={cn(
+                      'border rounded-md p-1 px-4 flex items-center justify-center border-muted-foreground ',
+                      !line.count && 'text-muted-foreground opacity-50'
+                    )}
+                  >
+                    {line.count}
+                  </div>
+                </div>
                 <span className="text-ellipsis overflow-x-hidden text-left text-[#334155]">
                   {line.startStationName}
                 </span>

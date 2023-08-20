@@ -97,7 +97,10 @@ export function LineAddStatus({ line }: { line: Line }) {
                 title="TimeZone"
                 content={<span>{TimeMap[advertise.timeZone].time}</span>}
               />
-              <GridBox title="QR Code CTR" content={<span>212,332</span>} />
+              <GridBox
+                title="QR Code Scan Count"
+                content={<span>212,332</span>}
+              />
             </div>
           </div>
         ))

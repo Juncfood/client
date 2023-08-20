@@ -13,7 +13,7 @@ const Root = () => {
       <LineStatusPage />
       <QRCoreCTRChart />
       <Link href="ad">
-        <Button className="w-full mt-8 bg-inverse col-span-2 py-6">
+        <Button className="w-full mt-16 bg-inverse col-span-2 py-6">
           Register
         </Button>
       </Link>

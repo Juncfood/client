@@ -19,6 +19,7 @@ import {
 import { useToast } from '@/components/ui/use-toast'
 import { Ad, AdArea, TimeZone } from '@/models/Ad'
 import adValidation from '@/validation/ad-vaildation'
+import { cn } from '@/lib/utils'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
@@ -68,6 +69,7 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
     },
     mode: 'onChange',
   })
+
   const { toast } = useToast()
   const router = useRouter()
   const { mutate, isLoading } = useMutation({
@@ -113,170 +115,193 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
   const timeZone = form.watch('timezone')
   const line = form.watch('line')
 
+  const formValue = form.getValues()
+  const previewUrl = formValue.image.url
+
   useEffect(() => {
     if (line && timeZone) {
       updateAdList(line, timeZone)
     }
+    console.log('!!', previewUrl)
   }, [form, line, timeZone])
 
   return (
-    <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onValid)}
-        className="grid grid-cols-[20%_1fr] items-center gap-y-6"
-      >
-        <Label>
-          <h3 className="text-Title1">Line</h3>
-        </Label>
-        <FormField
-          control={form.control}
-          name="line"
-          render={({ field }) => (
-            <FormItem>
-              <Select
+    <>
+      <Form {...form}>
+        <form
+          onSubmit={form.handleSubmit(onValid)}
+          className="grid grid-cols-[20%_1fr] items-center gap-y-6"
+        >
+          <Label>
+            <h3 className="text-Title1">Line</h3>
+          </Label>
+          <FormField
+            control={form.control}
+            name="line"
+            render={({ field }) => (
+              <FormItem>
+                <Select
+                  disabled={isLoading}
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select an option" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {lines?.map((line) => (
+                      <SelectItem key={line.id} value={line.id}>
+                        {line.name}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </FormItem>
+            )}
+          />
+          <Label>
+            <h3 className="text-Title1">Title</h3>
+          </Label>
+          <FormField
+            control={form.control}
+            name="title"
+            render={({ field }) => (
+              <FormItem defaultValue={field.value}>
+                <Input
+                  {...field}
+                  disabled={isLoading}
+                  type="text"
+                  onChange={field.onChange}
+                />
+              </FormItem>
+            )}
+          />
+          <Label>
+            <h3 className="text-Title1">Timezone</h3>
+            <p className="text-Body1 text-gray-300">(Select 1)</p>
+          </Label>
+          <FormField
+            control={form.control}
+            name="timezone"
+            render={({ field }) => (
+              <RadioGroup
                 disabled={isLoading}
-                onValueChange={field.onChange}
+                className="flex justify-between py-4"
                 defaultValue={field.value}
               >
-                <SelectTrigger>
-                  <SelectValue placeholder="Select an option" />
-                </SelectTrigger>
-                <SelectContent>
-                  {lines?.map((line) => (
-                    <SelectItem key={line.id} value={line.id}>
-                      {line.name}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </FormItem>
-          )}
-        />
-        <Label>
-          <h3 className="text-Title1">Title</h3>
-        </Label>
-        <FormField
-          control={form.control}
-          name="title"
-          render={({ field }) => (
-            <FormItem defaultValue={field.value}>
-              <Input
-                {...field}
-                disabled={isLoading}
-                type="text"
-                onChange={field.onChange}
-              />
-            </FormItem>
-          )}
-        />
-        <Label>
-          <h3 className="text-Title1">Timezone</h3>
-          <p className="text-Body1 text-gray-300">(Select 1)</p>
-        </Label>
-        <FormField
-          control={form.control}
-          name="timezone"
-          render={({ field }) => (
-            <RadioGroup
-              disabled={isLoading}
-              className="flex justify-between py-4"
-              defaultValue={field.value}
-            >
-              {Object.entries(timeType).map((timeKey) => (
-                <FormItem key={timeKey[0]} {...field}>
-                  <FormControl>
-                    <Timezone
-                      selected={field.value === timeKey[1]}
-                      timeType={timeKey[1]}
-                      onChange={(timezone) => field.onChange(timezone)}
-                    />
-                  </FormControl>
-                </FormItem>
-              ))}
-            </RadioGroup>
-          )}
-        />
-        {adList.length ? (
-          <>
-            <Label className="text-Title1">Ad Area</Label>
-            <FormField
-              control={form.control}
-              name="adId"
-              render={({ field }) => {
-                return (
-                  <Select
-                    defaultValue={field.value}
-                    disabled={isLoading}
-                    onValueChange={field.onChange}
-                    {...field}
-                  >
-                    <SelectTrigger>
-                      <SelectValue
-                        placeholder="?palceholer"
-                        defaultValue={adList[0].type}
+                {Object.entries(timeType).map((timeKey) => (
+                  <FormItem key={timeKey[0]} {...field}>
+                    <FormControl>
+                      <Timezone
+                        selected={field.value === timeKey[1]}
+                        timeType={timeKey[1]}
+                        onChange={(timezone) => field.onChange(timezone)}
                       />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {adList
-                        ?.filter((item) =>
-                          ad
-                            ? item.occupied
-                            : !item.occupied && !item.preoccupied
-                        )
-                        .map((ad) => (
-                          <SelectItem key={ad.id} value={ad.id}>
-                            {areaType[ad.type].name}
-                          </SelectItem>
-                        ))}
-                    </SelectContent>
-                  </Select>
-                )
-              }}
-            />
-          </>
-        ) : null}
-        <Label>Landing Url</Label>
-        <FormField
-          control={form.control}
-          name="landingUrl"
-          render={({ field }) => (
-            <FormItem>
-              <Input
-                {...field}
-                disabled={isLoading}
-                type="text"
-                onChange={field.onChange}
+                    </FormControl>
+                  </FormItem>
+                ))}
+              </RadioGroup>
+            )}
+          />
+          {adList.length ? (
+            <>
+              <Label className="text-Title1">Ad Area</Label>
+              <FormField
+                control={form.control}
+                name="adId"
+                render={({ field }) => {
+                  return (
+                    <Select
+                      defaultValue={field.value}
+                      disabled={isLoading}
+                      onValueChange={field.onChange}
+                      {...field}
+                    >
+                      <SelectTrigger>
+                        <SelectValue
+                          placeholder="?palceholer"
+                          defaultValue={adList[0].type}
+                        />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {adList
+                          ?.filter((item) =>
+                            ad
+                              ? item.occupied
+                              : !item.occupied && !item.preoccupied
+                          )
+                          .map((ad) => (
+                            <SelectItem key={ad.id} value={ad.id}>
+                              {areaType[ad.type].name}
+                            </SelectItem>
+                          ))}
+                      </SelectContent>
+                    </Select>
+                  )
+                }}
               />
-            </FormItem>
-          )}
-        />
-        <Label></Label>
-        <FormField
-          control={form.control}
-          name="image"
-          render={({ field }) => (
-            <FileInput
-              defaultValue={field.value}
-              disabled={isLoading}
-              className="aspect-[524/372]  w-2/3 bg-blue-300 flex flex-col justify-center items-center"
-              onBlobChange={(blob) => field.onChange(blob)}
-            >
-              <div>
-                <Image
-                  src="/registerImg.svg"
-                  width={40}
-                  height={40}
-                  alt="register your img"
+            </>
+          ) : null}
+          <Label>Landing Url</Label>
+          <FormField
+            control={form.control}
+            name="landingUrl"
+            render={({ field }) => (
+              <FormItem>
+                <Input
+                  {...field}
+                  disabled={isLoading}
+                  type="text"
+                  onChange={field.onChange}
                 />
-              </div>
-              <div className="text-white text-sm mt-[8px]">Select Image</div>
-            </FileInput>
-          )}
-        />
-
-        <Button className="bg-inverse w-full col-span-2 py-6">SAVE</Button>
-      </form>
-    </Form>
+              </FormItem>
+            )}
+          />
+          <Label></Label>
+          <FormField
+            control={form.control}
+            name="image"
+            render={({ field }) => (
+              <FileInput
+                defaultValue={field.value}
+                disabled={isLoading}
+                className="aspect-[524/372]  w-2/3 bg-blue-300 flex flex-col justify-center items-center"
+                onBlobChange={(blob) => field.onChange(blob)}
+              >
+                <div>
+                  <Image
+                    src="/registerImg.svg"
+                    width={40}
+                    height={40}
+                    alt="register your img"
+                  />
+                </div>
+                <div className="text-white text-sm mt-[8px]">Select Image</div>
+              </FileInput>
+            )}
+          />
+          <h3 className="text-Title1 mb-6">Preview</h3>
+        </form>
+      </Form>
+      <Image
+        src="/preview.svg"
+        width={960}
+        height={600}
+        alt="register your img"
+      />
+      {previewUrl && (
+        <div className={cn('relative w-[100px] h-[40px]')}>
+          <Image
+            src={previewUrl}
+            className="absolute right-0 z-50 hidden w-1/2 sm:block"
+            alt={formValue.title || ''}
+            fill
+          />
+        </div>
+      )}
+      {/* <Image src={previewUrl}  width={150}, height={150} alt='프로필 이미지 입니다.' /> */}
+      <Button className="bg-inverse w-full col-span-2 py-6 mt-16">SAVE</Button>
+    </>
   )
 }
 

@@ -52,7 +52,7 @@ const LineStatusPage = () => {
         staggerChildren: 1,
         delayChildren: 1,
       }}
-      className="flex flex-col space-y-4"
+      className="flex flex-col space-y-4 mb-16"
     >
       {sortedData?.map((line, idx) => {
         const color = line.primaryColor

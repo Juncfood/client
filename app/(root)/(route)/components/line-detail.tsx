@@ -2,11 +2,12 @@ import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { Ad, AdArea, TimeMap } from '@/models/Ad'
 import { Line } from '@/models/Line'
-import { Link } from 'lucide-react'
 import Image from 'next/image'
 import GridBox from './grid-box'
 import { useQuery } from '@tanstack/react-query'
 import { MetricApi } from '@/api/metric'
+import Link from 'next/link'
+import { Link as LinkIcon } from 'lucide-react'
 
 const LineDetail = ({ advertise, line }: { advertise: Ad; line: Line }) => {
   const { data: CTRLust } = useQuery(
@@ -17,9 +18,16 @@ const LineDetail = ({ advertise, line }: { advertise: Ad; line: Line }) => {
     <div className="p-4">
       <div className="w-full flex justify-between items-center mb-4">
         <h1 className="text-Body1">{advertise.type}</h1>
-        <Link href={`/ad?lineId=${line.id}&timeZone=${advertise.timeZone}`}>
-          <Button className="h-fit py-1 px-6 bg-muted-foreground">Edit</Button>
-        </Link>
+        <div className="flex space-x-4">
+          <Link href={advertise.landingUrl} target="_blank">
+            <LinkIcon></LinkIcon>
+          </Link>
+          <Link href={`/ad?lineId=${line.id}&timeZone=${advertise.timeZone}`}>
+            <Button className="h-fit py-1 px-6 bg-muted-foreground">
+              Edit
+            </Button>
+          </Link>
+        </div>
       </div>
       <div className={cn('grid md:grid-cols-[1fr_35%_25%] gap-4 grid-cols-2')}>
         {advertise.imageUrl && (

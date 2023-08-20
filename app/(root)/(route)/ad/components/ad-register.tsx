@@ -217,7 +217,6 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
                 render={({ field }) => {
                   return (
                     <Select
-                      open
                       defaultValue={field.value}
                       disabled={isLoading}
                       onValueChange={field.onChange}

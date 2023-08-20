@@ -14,6 +14,7 @@ import { Variants, motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import { AdvertiseApi } from '@/api/advertise'
 import { useMemo } from 'react'
+import Loading from '@/components/loading'
 
 const itemVariants: Variants = {
   initial: {
@@ -27,7 +28,7 @@ const itemVariants: Variants = {
 const AccItem = motion(AccordionItem)
 const AccordionWrapper = motion(Accordion)
 const LineStatusPage = () => {
-  const { data } = useQuery(SubwayApi.queries.getLines)
+  const { data, isLoading } = useQuery(SubwayApi.queries.getLines)
   const subwayList = useQueries({
     queries:
       data?.map((item) => AdvertiseApi.queries.getAdsByLineId(item.id)) || [],
@@ -40,10 +41,13 @@ const LineStatusPage = () => {
     }))
 
     dataWithCount?.sort((a, b) => (b?.count || 0) - (a?.count || 0))
+
     return dataWithCount
   }, [data, subwayList])
 
-  return (
+  return isLoading ? (
+    <Loading loading={isLoading} />
+  ) : (
     <AccordionWrapper
       type="single"
       collapsible

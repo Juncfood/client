@@ -130,7 +130,6 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
     }
   }, [form, line, previewUrl, timeZone])
 
-  console.log(selectedAdArea?.type)
   return (
     <>
       <Form {...form}>

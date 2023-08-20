@@ -4,7 +4,9 @@ import { Ad, TimeZone } from '@/models/Ad'
 import instance from '@/api/instance'
 import PrefetchQuery from '@/hydrate/prefetch-query'
 import { AdvertiseApi } from '@/api/advertise'
-export const dynamic = 'force-static'
+
+export const dynamic = 'force-dynamic'
+
 const getEditableAd = async (lineId: string, timeZone: string) => {
   const res = await instance.get<Ad[]>(`/ad`, {
     params: {

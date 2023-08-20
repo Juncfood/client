@@ -6,7 +6,6 @@ const nextConfig = {
       'uyvuezuqecavttegymmj.supabase.co',
       'res.cloudinary.com',
     ],
-    unoptimized: true,
     // remotePatterns: [
     //   {
     //     protocol: 'https',

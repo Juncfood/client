@@ -309,8 +309,8 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
                 selectedAdArea?.type === AdArea.UPPERSIDE
                   ? 'left-[6.8%] top-[15%] width-[34%] height-[15%]'
                   : selectedAdArea?.type === AdArea.DOORSIDERIGHT
-                  ? 'w-[13%] h-[17%] right-[9.2%] height-[16.4%] width-[13%] top-[35%]'
-                  : ''
+                  ? 'w-[13%] h-[17%] left-[27%] height-[18%] width-[14%] top-[35%]'
+                  : 'w-[13%] h-[17%] left-[27%] height-[18%] width-[16%] top-[35%]'
               )}
               alt={title || ''}
             />

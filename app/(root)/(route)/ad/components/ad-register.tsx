@@ -307,7 +307,7 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
               className={cn(
                 'absolute z-50 sm:block outline-2 border-2 border-white',
                 selectedAdArea?.type === AdArea.UPPERSIDE
-                  ? 'left-[6.8%] top-[15%] width-[34%] height-[15%]'
+                  ? 'left-[6.8%] top-[15%] w-[33.7%] h-[14%]'
                   : selectedAdArea?.type === AdArea.DOORSIDERIGHT
                   ? 'w-[13%] h-[17%] left-[27%] height-[18%] width-[14%] top-[35%]'
                   : 'w-[13%] h-[17%] left-[27%] height-[18%] width-[16%] top-[35%]'

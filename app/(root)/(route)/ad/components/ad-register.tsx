@@ -217,6 +217,7 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
                 render={({ field }) => {
                   return (
                     <Select
+                      open
                       defaultValue={field.value}
                       disabled={isLoading}
                       onValueChange={field.onChange}
@@ -224,7 +225,7 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
                     >
                       <SelectTrigger>
                         <SelectValue
-                          placeholder="?palceholer"
+                          placeholder="Select Ad Area."
                           defaultValue={adList[0].type}
                         />
                       </SelectTrigger>
@@ -236,7 +237,11 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
                               : !item.occupied && !item.preoccupied
                           )
                           .map((ad) => (
-                            <SelectItem key={ad.id} value={ad.id}>
+                            <SelectItem
+                              className="hover:bg-none"
+                              key={ad.id}
+                              value={ad.id}
+                            >
                               {areaType[ad.type].name}
                             </SelectItem>
                           ))}

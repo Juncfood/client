@@ -66,7 +66,7 @@ const LineStatusPage = () => {
             value={line.id}
             key={line.id}
             onClick={() => {
-              requestIdleCallback(() => {
+              requestIdleCallback?.(() => {
                 const selectedAcco = document.querySelector(
                   'div[data-state="open"][data-orientation="vertical"]'
                 )

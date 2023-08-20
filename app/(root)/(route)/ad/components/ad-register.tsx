@@ -92,6 +92,7 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
 
   useEffect(() => {
     const error = Object.entries(form.formState.errors)
+    console.log(error)
     if (error.length) {
       toast({
         title: 'Error',
@@ -289,40 +290,44 @@ const AdRegister = ({ ad }: AdRegisterProps) => {
               </FileInput>
             )}
           />
-          <h3 className="text-Title1 mb-6">Preview</h3>
+          <div className="w-full col-span-2">
+            <h3 className="text-Title1 mb-6">Preview</h3>
+            <div className="relative w-full aspect-[16/9]">
+              <Image
+                src="/preview.svg"
+                // width={960}
+                // height={600}
+                fill
+                alt="register your img"
+              />
+              {previewUrl && selectedAdArea?.type && (
+                <div
+                  className={cn(
+                    'absolute w-full h-full outline-2 border-2 border-white'
+                  )}
+                >
+                  <img
+                    src={previewUrl}
+                    className={cn(
+                      'absolute z-50 sm:block outline-2 border-2 border-white',
+                      selectedAdArea?.type === AdArea.UPPERSIDE
+                        ? 'left-[6.8%] top-[15%] w-[34%] h-[14%]'
+                        : selectedAdArea?.type === AdArea.DOORSIDERIGHT
+                        ? 'w-[13.3%] h-[17%] right-[9%] height-[18%] width-[14%] top-[35%]'
+                        : 'w-[13%] h-[17%] left-[27%] height-[18%] width-[16%] top-[35%]'
+                    )}
+                    alt={title || ''}
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+          {/* <Image src={previewUrl}  width={150}, height={150} alt='프로필 이미지 입니다.' /> */}
+          <Button className="bg-inverse w-full col-span-2 py-6 mt-16">
+            SAVE
+          </Button>
         </form>
       </Form>
-      <div className="relative w-full aspect-[16/9]">
-        <Image
-          src="/preview.svg"
-          // width={960}
-          // height={600}
-          fill
-          alt="register your img"
-        />
-        {previewUrl && selectedAdArea?.type && (
-          <div
-            className={cn(
-              'absolute w-full h-full outline-2 border-2 border-white'
-            )}
-          >
-            <img
-              src={previewUrl}
-              className={cn(
-                'absolute z-50 sm:block outline-2 border-2 border-white',
-                selectedAdArea?.type === AdArea.UPPERSIDE
-                  ? 'left-[6.8%] top-[15%] w-[34%] h-[14%]'
-                  : selectedAdArea?.type === AdArea.DOORSIDERIGHT
-                  ? 'w-[13.3%] h-[17%] right-[9%] height-[18%] width-[14%] top-[35%]'
-                  : 'w-[13%] h-[17%] left-[27%] height-[18%] width-[16%] top-[35%]'
-              )}
-              alt={title || ''}
-            />
-          </div>
-        )}
-      </div>
-      {/* <Image src={previewUrl}  width={150}, height={150} alt='프로필 이미지 입니다.' /> */}
-      <Button className="bg-inverse w-full col-span-2 py-6 mt-16">SAVE</Button>
     </>
   )
 }

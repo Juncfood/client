@@ -65,6 +65,20 @@ const LineStatusPage = () => {
             variants={itemVariants}
             value={line.id}
             key={line.id}
+            onClick={() => {
+              requestIdleCallback(() => {
+                const selectedAcco = document.querySelector(
+                  'div[data-state="open"][data-orientation="vertical"]'
+                )
+                if (selectedAcco) {
+                  selectedAcco.scrollIntoView({
+                    inline: 'start',
+                    block: 'center',
+                    behavior: 'smooth',
+                  })
+                }
+              })
+            }}
             className="bg-primary-foreground rounded-md"
           >
             <AccordionTrigger className="px-8 py-6 [&[data-state=open]>div_svg]:rotate-180">
